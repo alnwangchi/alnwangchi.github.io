@@ -3,11 +3,11 @@
   <title>AllenW BLOG</title>
   
   
-  <link href="http://alnwangchi.github.io/atom.xml" rel="self"/>
+  <link href="https://alnwangchi.github.io/atom.xml" rel="self"/>
   
-  <link href="http://alnwangchi.github.io/"/>
+  <link href="https://alnwangchi.github.io/"/>
   <updated>2021-11-21T07:50:04.938Z</updated>
-  <id>http://alnwangchi.github.io/</id>
+  <id>https://alnwangchi.github.io/</id>
   
   <author>
     <name>Allen Wang</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>my first article</title>
-    <link href="http://alnwangchi.github.io/2021/11/21/my-first-article/"/>
-    <id>http://alnwangchi.github.io/2021/11/21/my-first-article/</id>
+    <link href="https://alnwangchi.github.io/2021/11/21/my-first-article/"/>
+    <id>https://alnwangchi.github.io/2021/11/21/my-first-article/</id>
     <published>2021-11-21T07:28:29.000Z</published>
     <updated>2021-11-21T07:50:04.938Z</updated>
     
@@ -38,8 +38,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://alnwangchi.github.io/2021/11/21/hello-world/"/>
-    <id>http://alnwangchi.github.io/2021/11/21/hello-world/</id>
+    <link href="https://alnwangchi.github.io/2021/11/21/hello-world/"/>
+    <id>https://alnwangchi.github.io/2021/11/21/hello-world/</id>
     <published>2021-11-21T07:17:55.012Z</published>
     <updated>2021-11-21T07:17:55.012Z</updated>
     
