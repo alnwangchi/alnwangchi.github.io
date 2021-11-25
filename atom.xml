@@ -6,7 +6,7 @@
   <link href="https://alnwangchi.github.io/atom.xml" rel="self"/>
   
   <link href="https://alnwangchi.github.io/"/>
-  <updated>2021-11-25T15:25:49.535Z</updated>
+  <updated>2021-11-25T16:10:29.826Z</updated>
   <id>https://alnwangchi.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>正則表達式 Regular Expression</title>
+    <link href="https://alnwangchi.github.io/2021/11/26/%E6%AD%A3%E5%89%87%E8%A1%A8%E9%81%94%E5%BC%8F-Regular-Expression/"/>
+    <id>https://alnwangchi.github.io/2021/11/26/%E6%AD%A3%E5%89%87%E8%A1%A8%E9%81%94%E5%BC%8F-Regular-Expression/</id>
+    <published>2021-11-25T16:09:58.000Z</published>
+    <updated>2021-11-25T16:10:29.826Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="正則表達式-Regular-Expression"><a href="#正則表達式-Regular-Expression" class="headerlink" title="正則表達式 Regular Expression"></a>正則表達式 Regular Expression</h1><h6 id="tags-單元筆記"><a href="#tags-單元筆記" class="headerlink" title="tags: 單元筆記"></a>tags: <code>單元筆記</code></h6><h3 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h3><p><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Regular_Expressions">MDN文件說明</a><br><a href="https://regexone.com/">RegexOne練習網站</a></p><h3 id="主要用途"><a href="#主要用途" class="headerlink" title="主要用途"></a>主要用途</h3><p>過濾數字及文字的格式(電話號碼、身分證字號、Email)<br>也可以替代文字時使用</p><h3 id="測試"><a href="#測試" class="headerlink" title="測試"></a>測試</h3><p>將比對條件放在//之間</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&quot;Allen Wang&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> result01 = str.match(<span class="regexp">/Wang/</span>);</span><br><span class="line"><span class="built_in">console</span>.log(result01.length); <span class="comment">//1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> result02 = <span class="regexp">/Wang/</span>.test(str);</span><br><span class="line"><span class="keyword">let</span> result03 = <span class="regexp">/wang/</span>.test(str);</span><br><span class="line"><span class="built_in">console</span>.log(result02); <span class="comment">//True</span></span><br><span class="line"><span class="built_in">console</span>.log(result03); <span class="comment">//False</span></span><br></pre></td></tr></table></figure><h3 id="符號記一下"><a href="#符號記一下" class="headerlink" title="符號記一下"></a>符號記一下</h3><table><thead><tr><th>字元</th><th>解說</th></tr></thead><tbody><tr><td>*</td><td>0個或是多個</td></tr><tr><td>+</td><td>1個或是多個</td></tr><tr><td>?</td><td>0個或是1個</td></tr><tr><td>\d</td><td>任何的數字</td></tr><tr><td>\D</td><td>任何的非數字</td></tr><tr><td>\</td><td>跳脫字元</td></tr><tr><td>[]</td><td>只能是([a-z][A-Z][0-9])</td></tr><tr><td>[^]</td><td>不能是</td></tr><tr><td>\w</td><td>任何字母數字</td></tr><tr><td>\W</td><td>任何非字母數字(應該就是指符號 )</td></tr><tr><td>{}</td><td>幾個字元</td></tr><tr><td>{,}</td><td>幾到幾個字元</td></tr><tr><td>\s</td><td>任何空白</td></tr><tr><td>\S</td><td>任何非空白</td></tr><tr><td>^…$</td><td>開頭跟結尾</td></tr><tr><td>()</td><td>capture group</td></tr><tr><td>(a|b)</td><td>match a or b</td></tr></tbody></table><h3 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h3><p>透過上方連結練習稍微理解過常用符號的用法<br>可用於表單驗證<br>有許多現成解答可直接google到</p>]]></content>
+    
+    
+    <summary type="html">Allen&#39;s note</summary>
+    
+    
+    
+    
+    <category term="正則" scheme="https://alnwangchi.github.io/tags/%E6%AD%A3%E5%89%87/"/>
+    
+  </entry>
   
   <entry>
     <title>Scope 作用域</title>
