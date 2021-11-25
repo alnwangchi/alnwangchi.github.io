@@ -56,4 +56,35 @@
         <tag>觀念紀錄</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Scope 作用域</title>
+    <url>/2021/11/25/Scope%20%E4%BD%9C%E7%94%A8%E5%9F%9F/</url>
+    <content><![CDATA[<h1 id="Scope-作用域"><a href="#Scope-作用域" class="headerlink" title="Scope 作用域"></a>Scope 作用域</h1><h6 id="tags-單元筆記-javascript-觀念"><a href="#tags-單元筆記-javascript-觀念" class="headerlink" title="tags: 單元筆記 javascript 觀念"></a>tags: <code>單元筆記</code> <code>javascript</code> <code>觀念</code></h6><h2 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h2><p>區分成 Global 、 Function 、 Block 三種，指的是變數或常數的宣告與語句的可被存取得到的範圍。</p>
+<ul>
+<li>Global : 內層所有地方都可以存取這邊的內容，即全域變數</li>
+<li>Function : var 宣告會被限制在內，不影響外層變數</li>
+<li>Block : 就是以大括號 ( {} ) 劃分出作用的範圍，用 let 宣告會被限制在內，不影響外層變數</li>
+</ul>
+<p>大概就像這個樣子的大小範圍</p>
+<p><img src="https://i.imgur.com/1QhgAgW.png"></p>
+<h2 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h2><p>這邊說明 var 與 let 宣告的作用域，ex01 中 x 並未被限制在大括弧內，他還是可以被存取到，即是在Global Scope 中 ;<br>而 ex02 有將變數限制在大括弧內，也就是 Block Scope中 ;<br>然而 ex03 中 x 就有被限制在這個 funtion 內，也就是 Function Scope 中。</p>
+<ul>
+<li>ex01<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> x = <span class="number">5</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(x) <span class="comment">// 5</span></span><br></pre></td></tr></table></figure></li>
+<li>ex02<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> y = <span class="number">5</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(y) <span class="comment">// y is not defined</span></span><br></pre></td></tr></table></figure></li>
+<li>ex03<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">allen</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">5</span></span><br><span class="line">&#125;</span><br><span class="line">allen()</span><br><span class="line"><span class="built_in">console</span>.log(x) <span class="comment">// x is not defined</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>這邊說明 x 被限制在 Function Scope 中，若裡面找不到變數時則會向外找。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="string">&#x27;全域 x&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> x = <span class="string">&#x27;區域 x&#x27;</span></span><br><span class="line">  <span class="built_in">console</span>.log(x) </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(x) <span class="comment">// 全域 x</span></span><br><span class="line">fn() <span class="comment">// 區域 x</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="string">&#x27;全域 x&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(x) </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(x) <span class="comment">// 全域 x</span></span><br><span class="line">fn() <span class="comment">// 全域 x</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>ex04<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//函式陳述式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a+b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//函式表達式</span></span><br><span class="line"><span class="keyword">const</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a+b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//箭頭函式</span></span><br><span class="line"><span class="keyword">const</span> sum = <span class="function">(<span class="params">a, b</span>) =&gt;</span> a+b</span><br></pre></td></tr></table></figure>
+<h2 id="小記"><a href="#小記" class="headerlink" title="小記"></a>小記</h2></li>
+</ul>
+<p>:::info<br>應避免使用 var，改用 let 和 const<br>const 具備所有 let 的特性，差別在於不能更改值，在明確不會更動資料時使用。<br>而 function 可以用 ex04 中的的第一及第三種，差別在於第一種會被提升，也就是可以在定義之前調用;<br>而第二種幾乎可以用第三種取代，第三種又有綁定 this 的好處。<br>:::</p>
+<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><p><a href="https://something-about-js-book.onejar99.com/day08">ES6 更嚴謹安全的 let 和 const</a><br><a href="https://eyesofkids.gitbooks.io/javascript-start-from-es6/content/part3/function_scope.html">函式與作用域</a><br><a href="https://kuro.tw/posts/2015/07/08/note-javascript-variables-declared-with-the-scope-scope/">JavaScript 變數宣告與作用域</a></p>
+]]></content>
+      <tags>
+        <tag>觀念紀錄</tag>
+      </tags>
+  </entry>
 </search>
