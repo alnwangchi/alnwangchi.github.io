@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"alnwangchi.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Allen&#39;s note">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Firebase">
+<meta property="og:url" content="https://alnwangchi.github.io/2021/11/26/Firebase/index.html">
+<meta property="og:site_name" content="AllenW BLOG">
+<meta property="og:description" content="Allen&#39;s note">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.imgur.com/iKnN4pn.png">
+<meta property="og:image" content="https://i.imgur.com/7I1oPCH.png">
+<meta property="og:image" content="https://i.imgur.com/e1CQzbC.png">
+<meta property="og:image" content="https://i.imgur.com/VyQy13x.png">
+<meta property="article:published_time" content="2021-11-26T15:50:00.000Z">
+<meta property="article:modified_time" content="2021-11-26T15:50:18.851Z">
+<meta property="article:author" content="Allen Wang">
+<meta property="article:tag" content="database">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/iKnN4pn.png">
+
+<link rel="canonical" href="https://alnwangchi.github.io/2021/11/26/Firebase/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Firebase | AllenW BLOG</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="AllenW BLOG" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">AllenW BLOG</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://alnwangchi.github.io/2021/11/26/Firebase/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Allen Wang">
+      <meta itemprop="description" content="for frontend">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AllenW BLOG">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Firebase
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-11-26 23:50:00 / Modified: 23:50:18" itemprop="dateCreated datePublished" datetime="2021-11-26T23:50:00+08:00">2021-11-26</time>
+            </span>
+
+          
+            <div class="post-description">Allen's note</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Firebase"><a href="#Firebase" class="headerlink" title="Firebase"></a>Firebase</h1><p><a target="_blank" rel="noopener" href="https://console.firebase.google.com/u/0/">官網</a><br><a target="_blank" rel="noopener" href="https://github.com/firebase/quickstart-js">GitHub</a></p>
+<h3 id="服務內容"><a href="#服務內容" class="headerlink" title="服務內容"></a>服務內容</h3><ol>
+<li>Authentication: 用戶認證管理</li>
+<li>Firestore Database: NoSql資料庫服務</li>
+<li>Realtime Database: 實時儲存並同步資料庫</li>
+<li>Storage: 文件儲存服務(文件、圖片等)</li>
+<li>Hosting: 網站託管</li>
+<li>Function: 服務區程式碼託管</li>
+</ol>
+<h3 id="看看先"><a href="#看看先" class="headerlink" title="看看先"></a>看看先</h3><p>基本上免費版的運用空間已經很多了，需要再開收費方案，好難懂。<br>我這邊先開啟使用的服務是 firestore database</p>
+<h3 id="目前的操作步驟"><a href="#目前的操作步驟" class="headerlink" title="目前的操作步驟"></a>目前的操作步驟</h3><h3 id="發現新大陸"><a href="#發現新大陸" class="headerlink" title="發現新大陸"></a>發現新大陸</h3><ol>
+<li>get() 回來的資料事個物件，沒有順序可言，所以當我轉成陣列時每次順序都不對….</li>
+</ol>
+<p><img src="https://i.imgur.com/iKnN4pn.png"></p>
+<p><img src="https://i.imgur.com/7I1oPCH.png"></p>
+<ul>
+<li>目前大概只能再自己進行資料排序了</li>
+</ul>
+<ol start="2">
+<li>firestore 的資料結構會是<br><code>collection</code>/<code>document</code>/<code>collection</code>/<code>document</code>／…… 這個樣子來往下延伸</li>
+</ol>
+<h3 id="關於實作時的問題"><a href="#關於實作時的問題" class="headerlink" title="關於實作時的問題"></a>關於實作時的問題</h3><p>上述有提到取回來的資料是一個物件，並且是無序的，那我須要如何處理成可以 render 出正確畫面的資料 ?</p>
+<p>以下為詳細的紀錄以供自己以後看不懂也想不起，但也可能有更好的處理方式吧</p>
+<blockquote>
+<p> 關於讀取資料</p>
+</blockquote>
+<ul>
+<li>doc 代表單一 document</li>
+<li>docs 代表一個 document 的陣列集合</li>
+<li>doc.data() 代表 doc 的物件內容，要這樣才可以拿到內容</li>
+<li>doc.id 代表該 doc 的名稱</li>
+</ul>
+<ol>
+<li>因為要製作每日的出貨庫存記錄表，所以 today 是用來判斷要取得哪個日期的 doc，因為在寫入時也有一樣的變數來記錄日期，所以在每一天寫入跟讀取時都只會共用同一個 doc ，而隔天自動會換另一個 doc</li>
+<li>cateRef 代表路徑，後續按照結構規則來設定要取得的資料</li>
+<li>get() 類似發個 request 吧 ? 不太確定，返回一個 Promise 物件後 .then() 執行後續動作</li>
+<li>取得一個 querySnapshot ， querySnapshot.docs 代表裡面有的 doc ，會是一個陣列</li>
+<li>以我的例子來說，會先取得一個有所有物件的陣列<br><img src="https://i.imgur.com/e1CQzbC.png"></li>
+<li>不能只接跑迴圈來 render 畫面，因為每次資料都是打亂的，所以必須要進行處裡</li>
+<li>dataAry 將每筆物件資料先轉成陣列，這邊會產出一個二維陣列<br><img src="https://i.imgur.com/VyQy13x.png"></li>
+<li>dataSort 取陣列中的第一筆資料 (透過 input id 產生的)，比對末兩位數字來重新排序，形成所思的資料形式</li>
+<li>用個空字串去接要渲染的 HTML 內容然後添加到目標上</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以上還有固定的資料庫初始化設定</span></span><br><span class="line"><span class="keyword">let</span> db = firebase.firestore();</span><br><span class="line"><span class="keyword">const</span> getData = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> today = moment().format(<span class="string">&quot;YYYY-MM-DD&quot;</span>)</span><br><span class="line">    <span class="keyword">let</span> cateRef = db.collection(<span class="string">&quot;table&quot;</span>).doc(today).collection(<span class="string">&#x27;出貨&#x27;</span>) <span class="comment">// 目標路徑</span></span><br><span class="line">    cateRef</span><br><span class="line">        .get() <span class="comment">// 取資料</span></span><br><span class="line">        .then(<span class="function">(<span class="params">querySnapshot</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> data = querySnapshot.docs; <span class="comment">// 內容陣列</span></span><br><span class="line">            <span class="keyword">let</span> renderHTML = <span class="string">&#x27;&#x27;</span> <span class="comment">// 接內容用</span></span><br><span class="line"></span><br><span class="line">            data.forEach(<span class="function">(<span class="params">doc, index</span>) =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">let</span> dataAry = <span class="built_in">Object</span>.entries(doc.data()) <span class="comment">// 物件轉為陣列</span></span><br><span class="line">                <span class="keyword">let</span> dataSort = dataAry.sort(<span class="function">(<span class="params">a,b</span>) =&gt;</span> &#123; <span class="comment">// 陣列重新排序</span></span><br><span class="line">                    <span class="keyword">return</span> a[<span class="number">0</span>].slice(-<span class="number">2</span>) &gt; b[<span class="number">0</span>].slice(-<span class="number">2</span>) ? <span class="number">1</span> : -<span class="number">1</span> <span class="comment">// 比對 key 的末兩位數字</span></span><br><span class="line">                 &#125;)</span><br><span class="line">                renderHTML += <span class="string">`&lt;tr&gt;`</span></span><br><span class="line">                renderHTML += <span class="string">`&lt;td&gt;<span class="subst">$&#123;doc.id&#125;</span>&lt;/td&gt;`</span>;</span><br><span class="line">                dataSort.forEach(<span class="function">(<span class="params">ary</span>) =&gt;</span> &#123;</span><br><span class="line">                    renderHTML += <span class="string">`&lt;td&gt;<span class="subst">$&#123;ary[<span class="number">1</span>]&#125;</span>&lt;/td&gt;`</span></span><br><span class="line">                &#125;)</span><br><span class="line">                renderHTML += <span class="string">`&lt;/tr&gt;`</span></span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">const</span> tbody = getElement(<span class="string">&quot;tbody&quot;</span>); <span class="comment">// DOM</span></span><br><span class="line">            tbody.innerHTML = renderHTML <span class="comment">// render</span></span><br><span class="line">        &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/database/" rel="tag"># database</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/11/26/Locomotive-Scroll/" rel="prev" title="Locomotive Scroll">
+      <i class="fa fa-chevron-left"></i> Locomotive Scroll
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Firebase"><span class="nav-number">1.</span> <span class="nav-text">Firebase</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8B%99%E5%85%A7%E5%AE%B9"><span class="nav-number">1.0.1.</span> <span class="nav-text">服務內容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9C%8B%E7%9C%8B%E5%85%88"><span class="nav-number">1.0.2.</span> <span class="nav-text">看看先</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E5%89%8D%E7%9A%84%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%A9%9F"><span class="nav-number">1.0.3.</span> <span class="nav-text">目前的操作步驟</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%99%BC%E7%8F%BE%E6%96%B0%E5%A4%A7%E9%99%B8"><span class="nav-number">1.0.4.</span> <span class="nav-text">發現新大陸</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%9C%E6%96%BC%E5%AF%A6%E4%BD%9C%E6%99%82%E7%9A%84%E5%95%8F%E9%A1%8C"><span class="nav-number">1.0.5.</span> <span class="nav-text">關於實作時的問題</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Allen Wang</p>
+  <div class="site-description" itemprop="description">for frontend</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Allen Wang</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
