@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"alnwangchi.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Allen&#39;s side project">
+<meta property="og:type" content="article">
+<meta property="og:title" content="YouTube Search Engine">
+<meta property="og:url" content="https://alnwangchi.github.io/2021/11/26/YouTube-Search-Engine/index.html">
+<meta property="og:site_name" content="AllenW BLOG">
+<meta property="og:description" content="Allen&#39;s side project">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.imgur.com/TQPMM18.png">
+<meta property="og:image" content="https://i.imgur.com/tsy1Ph3.png">
+<meta property="og:image" content="https://i.imgur.com/cqz39RF.png">
+<meta property="og:image" content="https://i.imgur.com/nHTQKjw.png">
+<meta property="article:published_time" content="2021-11-26T15:22:08.000Z">
+<meta property="article:modified_time" content="2021-11-26T15:22:44.472Z">
+<meta property="article:author" content="Allen Wang">
+<meta property="article:tag" content="網頁,前端,切版,開發,HTML,CSS,SCSS,JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/TQPMM18.png">
+
+<link rel="canonical" href="https://alnwangchi.github.io/2021/11/26/YouTube-Search-Engine/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>YouTube Search Engine | AllenW BLOG</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="AllenW BLOG" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">AllenW BLOG</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://alnwangchi.github.io/2021/11/26/YouTube-Search-Engine/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Allen Wang">
+      <meta itemprop="description" content="for frontend">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AllenW BLOG">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          YouTube Search Engine
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-11-26 23:22:08 / Modified: 23:22:44" itemprop="dateCreated datePublished" datetime="2021-11-26T23:22:08+08:00">2021-11-26</time>
+            </span>
+
+          
+            <div class="post-description">Allen's side project</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="YouTube-Search-Engine-實作"><a href="#YouTube-Search-Engine-實作" class="headerlink" title="YouTube Search Engine 實作"></a>YouTube Search Engine 實作</h1><h6 id="tags-實作-AJAX-javascript"><a href="#tags-實作-AJAX-javascript" class="headerlink" title="tags: 實作 AJAX javascript"></a>tags: <code>實作</code> <code>AJAX</code> <code>javascript</code></h6><p><a target="_blank" rel="noopener" href="https://allenw0815.github.io/mission/mission_33/index.html">實作頁面連結</a></p>
+<p><img src="https://i.imgur.com/TQPMM18.png"></p>
+<h3 id="Flowchart"><a href="#Flowchart" class="headerlink" title="Flowchart"></a>Flowchart</h3><ol>
+<li>HTML CSS 不多</li>
+<li>如何串接 YT 的 API 取得搜尋的相關資料</li>
+<li>JS 讓資料在 input 點擊時顯示搜尋資料</li>
+<li>判斷有無上下頁來生成按鈕</li>
+</ol>
+<h3 id="YouTube-API-取得"><a href="#YouTube-API-取得" class="headerlink" title="YouTube API 取得"></a>YouTube API 取得</h3><p>透過此平台( <a target="_blank" rel="noopener" href="https://cloud.google.com/?hl=zh-tw">Google cloud club Platform</a> )取得服務，建立憑證取得金鑰以及啟用下圖的 API ，這邊理解金鑰為辨認請求端身分以及做限制 ( 每日配額或影片嵌入權限之類的 )，圖三為每個金鑰的配額度，而不同的請求會消耗掉不同額度的配額，參考( <a target="_blank" rel="noopener" href="https://developers.google.com/youtube/v3/determine_quota_cost">YouTube Data API (v3) - Quota Calculator</a> )，也就是說我在頁面中搜尋個一百次達到配額上限後，之後的回應就會是 403 拒絕回復了。</p>
+<p><img src="https://i.imgur.com/tsy1Ph3.png"></p>
+<hr>
+<p><img src="https://i.imgur.com/cqz39RF.png"></p>
+<hr>
+<p><img src="https://i.imgur.com/nHTQKjw.png"></p>
+<blockquote>
+<p>JS流程</p>
+</blockquote>
+<ol>
+<li>call API 得到資料，帶有各參數來取得資料<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> key = <span class="string">&quot;AIzaSyC3Uae2cxrss-MgXU3XyoXXh6As_4ffE4Y&quot;</span></span><br><span class="line"><span class="keyword">let</span> key2 = <span class="string">&quot;AIzaSyAR5RPNsaVqHdtlYeNjtQQm12R8KSzsnHY&quot;</span> <span class="comment">// 啟用兩組因配額用完</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&#x27;.submit&#x27;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> q = $(<span class="string">&#x27;input&#x27;</span>).val()</span><br><span class="line">    videoSearch(key2,q,<span class="number">5</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">videoSearch</span> (<span class="params">key, q, limit</span>) </span>&#123;</span><br><span class="line">    $.get(<span class="string">&#x27;https://www.googleapis.com/youtube/v3/search&#x27;</span>, </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">part</span>: <span class="string">&quot;snippet,id&quot;</span>,</span><br><span class="line">        <span class="attr">q</span>: q, <span class="comment">//搜尋內容</span></span><br><span class="line">        <span class="attr">type</span>: <span class="string">&quot;video&quot;</span>,</span><br><span class="line">        <span class="attr">key</span>: key, <span class="comment">// 金鑰</span></span><br><span class="line">        <span class="attr">maxResults</span>: limit,<span class="comment">//筆數</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">        <span class="comment">// 換頁用</span></span><br><span class="line">        <span class="keyword">let</span> nextPageToken = data.nextPageToken</span><br><span class="line">        <span class="keyword">let</span> prevPageToken = data.prevPageToken</span><br><span class="line"></span><br><span class="line">        data.items.forEach((item)=&#123;</span><br><span class="line">        <span class="comment">// display... 畫面內容生成</span></span><br><span class="line">        &#125;)</span><br><span class="line">        $(<span class="string">&#x27;.result ul&#x27;</span>).html(display) <span class="comment">// 生畫面</span></span><br><span class="line">        <span class="keyword">let</span> btns = createBtn(nextPageToken,prevPageToken,q) <span class="comment">//造按鈕</span></span><br><span class="line">        $(<span class="string">&#x27;.pages&#x27;</span>).html(btns) <span class="comment">//生按鈕</span></span><br><span class="line">        $(<span class="string">&#x27;#prev&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>,prevPage)           </span><br><span class="line">        $(<span class="string">&#x27;#next&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>,nextPage)           </span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>換頁面按鈕的部分，在資料中有換頁的 token 可使用，取得後傳入此 function 內紀錄在 data-key 屬性裡面，q 搜尋結果也傳進來 ( 這樣當 input.value 更換時沒有案搜尋都不會改變資料 )<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createBtn</span>(<span class="params">nextPageToken,prevPageToken,q</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> output = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="comment">// 讓第一頁只有下一頁的一個按鈕之判斷</span></span><br><span class="line">    <span class="keyword">if</span>(!prevPageToken)&#123;</span><br><span class="line">        output = <span class="string">`</span></span><br><span class="line"><span class="string">        &lt;button class=&quot;switch&quot; id=&quot;next&quot; data-token=<span class="subst">$&#123;nextPageToken&#125;</span> data-query=<span class="subst">$&#123;q&#125;</span> onclick=&quot;nextPage()&quot;&gt;</span></span><br><span class="line"><span class="string">          &lt;i class=&quot;fas fa-arrow-circle-right&quot;&gt;&lt;/i&gt;</span></span><br><span class="line"><span class="string">        &lt;/button&gt;</span></span><br><span class="line"><span class="string">        `</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;    </span><br><span class="line">        output = <span class="string">`</span></span><br><span class="line"><span class="string">        &lt;button class=&quot;switch&quot; id=&quot;prev&quot; data-token=<span class="subst">$&#123;prevPageToken&#125;</span> data-query=<span class="subst">$&#123;q&#125;</span> onclick=&quot;prevPage()&quot;&gt;</span></span><br><span class="line"><span class="string">           &lt;i class=&quot;fas fa-arrow-circle-left&quot;&gt;&lt;/i&gt;</span></span><br><span class="line"><span class="string">        &lt;/button&gt;</span></span><br><span class="line"><span class="string">        &lt;button class=&quot;switch&quot; id=&quot;next&quot; data-token=<span class="subst">$&#123;nextPageToken&#125;</span> data-query=<span class="subst">$&#123;q&#125;</span> onclick=&quot;nextPage()&quot;&gt;</span></span><br><span class="line"><span class="string">          &lt;i class=&quot;fas fa-arrow-circle-right&quot;&gt;&lt;/i&gt;</span></span><br><span class="line"><span class="string">        &lt;/button&gt;</span></span><br><span class="line"><span class="string">        `</span></span><br><span class="line">    &#125;</span><br><span class="line">     <span class="keyword">return</span> output</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+這邊只差在多了一個帶入參數，上下頁取不同 token 即可<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">nextPage</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> token = $(<span class="string">&#x27;#next&#x27;</span>).data(<span class="string">&#x27;token&#x27;</span>)</span><br><span class="line">        <span class="keyword">let</span> q = $(<span class="string">&#x27;#next&#x27;</span>).data(<span class="string">&#x27;query&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        $.get(<span class="string">&#x27;https://www.googleapis.com/youtube/v3/search&#x27;</span>, </span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">part</span>: <span class="string">&quot;snippet,id&quot;</span>,</span><br><span class="line">            <span class="attr">q</span>: q,</span><br><span class="line">            <span class="attr">type</span>: <span class="string">&quot;video&quot;</span>,</span><br><span class="line">            <span class="attr">key</span>: key,</span><br><span class="line">            <span class="attr">pageToken</span>: token, <span class="comment">//唯一差別在這邊多傳入了此參數</span></span><br><span class="line">            <span class="attr">maxResults</span>: limit,</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">        <span class="comment">// 換頁用</span></span><br><span class="line">        <span class="keyword">let</span> nextPageToken = data.nextPageToken</span><br><span class="line">        <span class="keyword">let</span> prevPageToken = data.prevPageToken</span><br><span class="line"></span><br><span class="line">        data.items.forEach((item)=&#123;</span><br><span class="line">        <span class="comment">// display... 畫面內容生成</span></span><br><span class="line">        &#125;)</span><br><span class="line">        $(<span class="string">&#x27;.result ul&#x27;</span>).html(display) <span class="comment">// 再生下一頁畫面</span></span><br><span class="line">        <span class="keyword">let</span> btns = createBtn(nextPageToken,prevPageToken,q) <span class="comment">//造按鈕</span></span><br><span class="line">        $(<span class="string">&#x27;.pages&#x27;</span>).html(btns) <span class="comment">//生按鈕</span></span><br><span class="line">        $(<span class="string">&#x27;#prev&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>,prevPage)           </span><br><span class="line">        $(<span class="string">&#x27;#next&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>,nextPage)           </span><br><span class="line">    &#125;) </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="紀錄"><a href="#紀錄" class="headerlink" title="紀錄"></a>紀錄</h3><ul>
+<li>要用JavaScript操縱網頁的DOM元素時，必須等網頁完全載入後才可安全地進行操作，而要確保網頁載入，可使用 JQ ( 一 ) &amp; JS ( 二 )</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$( <span class="built_in">document</span> ).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 在這撰寫javascript程式碼</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 在這撰寫javascript程式碼</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>最後這個光箱函式庫來播放影片，沒有多研究，引入後只套 class 而已。<br>[fresco.js](<a target="_blank" rel="noopener" href="https://www.frescojs.com/">https://www.frescojs.com</a></li>
+</ul>
+<h3 id="小記"><a href="#小記" class="headerlink" title="小記"></a>小記</h3><p>整個專案只做到拿到資料、顯示畫面、換頁、光箱播放，除此之外有需多文件跟有的沒有的設定很複雜，上網查也有許多不同的做法，而且有許多小問題會出現，像是配額這部分原本不知道，出錯後找了半天才發現，有些影片回無法撥放有些卻可以，好像是影片的類型也有區別的樣子，好難啊幹!<br>等之後強一點再補充吧。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/11/26/Drag-and-Drop/" rel="prev" title="Drag and Drop">
+      <i class="fa fa-chevron-left"></i> Drag and Drop
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/11/26/%E5%8D%B3%E6%99%82%E5%A4%A9%E6%B0%A3APP/" rel="next" title="即時天氣APP">
+      即時天氣APP <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#YouTube-Search-Engine-%E5%AF%A6%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">YouTube Search Engine 實作</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#tags-%E5%AF%A6%E4%BD%9C-AJAX-javascript"><span class="nav-number">1.0.0.0.0.1.</span> <span class="nav-text">tags: 實作 AJAX javascript</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Flowchart"><span class="nav-number">1.0.1.</span> <span class="nav-text">Flowchart</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#YouTube-API-%E5%8F%96%E5%BE%97"><span class="nav-number">1.0.2.</span> <span class="nav-text">YouTube API 取得</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%80%E9%8C%84"><span class="nav-number">1.0.3.</span> <span class="nav-text">紀錄</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E8%A8%98"><span class="nav-number">1.0.4.</span> <span class="nav-text">小記</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Allen Wang</p>
+  <div class="site-description" itemprop="description">for frontend</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Allen Wang</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

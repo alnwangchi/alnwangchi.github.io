@@ -20,20 +20,18 @@
     var CONFIG = {"hostname":"alnwangchi.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Allen&#39;s note">
-<meta property="og:type" content="article">
-<meta property="og:title" content="正則表達式 Regular Expression">
-<meta property="og:url" content="https://alnwangchi.github.io/2021/11/26/%E6%AD%A3%E5%89%87%E8%A1%A8%E9%81%94%E5%BC%8F-Regular-Expression/index.html">
+  <meta name="description" content="for frontend">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AllenW BLOG">
+<meta property="og:url" content="https://alnwangchi.github.io/archives/page/2/index.html">
 <meta property="og:site_name" content="AllenW BLOG">
-<meta property="og:description" content="Allen&#39;s note">
+<meta property="og:description" content="for frontend">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-11-25T16:09:58.000Z">
-<meta property="article:modified_time" content="2021-11-25T16:10:29.826Z">
 <meta property="article:author" content="Allen Wang">
-<meta property="article:tag" content="正則">
+<meta property="article:tag" content="網頁,前端,切版,開發,HTML,CSS,SCSS,JavaScript">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://alnwangchi.github.io/2021/11/26/%E6%AD%A3%E5%89%87%E8%A1%A8%E9%81%94%E5%BC%8F-Regular-Expression/">
+<link rel="canonical" href="https://alnwangchi.github.io/archives/page/2/">
 
 
 <script id="page-configurations">
@@ -41,12 +39,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'en'
   };
 </script>
 
-  <title>正則表達式 Regular Expression | AllenW BLOG</title>
+  <title>Archive | AllenW BLOG</title>
   
 
 
@@ -178,165 +176,74 @@
         <div class="content-wrap">
           
 
-          <div class="content post posts-expand">
+          <div class="content archive">
             
 
-    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://alnwangchi.github.io/2021/11/26/%E6%AD%A3%E5%89%87%E8%A1%A8%E9%81%94%E5%BC%8F-Regular-Expression/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Allen Wang">
-      <meta itemprop="description" content="for frontend">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AllenW BLOG">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          正則表達式 Regular Expression
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-11-26 00:09:58 / Modified: 00:10:29" itemprop="dateCreated datePublished" datetime="2021-11-26T00:09:58+08:00">2021-11-26</time>
-            </span>
-
-          
-            <div class="post-description">Allen's note</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+  
+  <div class="post-block">
+    <div class="posts-collapse">
+      <div class="collection-title">
+        <span class="collection-header">Um..! 12 posts in total. Keep on posting.</span>
+      </div>
 
       
-        <h1 id="正則表達式-Regular-Expression"><a href="#正則表達式-Regular-Expression" class="headerlink" title="正則表達式 Regular Expression"></a>正則表達式 Regular Expression</h1><h6 id="tags-單元筆記"><a href="#tags-單元筆記" class="headerlink" title="tags: 單元筆記"></a>tags: <code>單元筆記</code></h6><h3 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Regular_Expressions">MDN文件說明</a><br><a target="_blank" rel="noopener" href="https://regexone.com/">RegexOne練習網站</a></p>
-<h3 id="主要用途"><a href="#主要用途" class="headerlink" title="主要用途"></a>主要用途</h3><p>過濾數字及文字的格式(電話號碼、身分證字號、Email)<br>也可以替代文字時使用</p>
-<h3 id="測試"><a href="#測試" class="headerlink" title="測試"></a>測試</h3><p>將比對條件放在//之間</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&quot;Allen Wang&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> result01 = str.match(<span class="regexp">/Wang/</span>);</span><br><span class="line"><span class="built_in">console</span>.log(result01.length); <span class="comment">//1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> result02 = <span class="regexp">/Wang/</span>.test(str);</span><br><span class="line"><span class="keyword">let</span> result03 = <span class="regexp">/wang/</span>.test(str);</span><br><span class="line"><span class="built_in">console</span>.log(result02); <span class="comment">//True</span></span><br><span class="line"><span class="built_in">console</span>.log(result03); <span class="comment">//False</span></span><br></pre></td></tr></table></figure>
-<h3 id="符號記一下"><a href="#符號記一下" class="headerlink" title="符號記一下"></a>符號記一下</h3><table>
-<thead>
-<tr>
-<th>字元</th>
-<th>解說</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>*</td>
-<td>0個或是多個</td>
-</tr>
-<tr>
-<td>+</td>
-<td>1個或是多個</td>
-</tr>
-<tr>
-<td>?</td>
-<td>0個或是1個</td>
-</tr>
-<tr>
-<td>\d</td>
-<td>任何的數字</td>
-</tr>
-<tr>
-<td>\D</td>
-<td>任何的非數字</td>
-</tr>
-<tr>
-<td>\</td>
-<td>跳脫字元</td>
-</tr>
-<tr>
-<td>[]</td>
-<td>只能是([a-z][A-Z][0-9])</td>
-</tr>
-<tr>
-<td>[^]</td>
-<td>不能是</td>
-</tr>
-<tr>
-<td>\w</td>
-<td>任何字母數字</td>
-</tr>
-<tr>
-<td>\W</td>
-<td>任何非字母數字(應該就是指符號 )</td>
-</tr>
-<tr>
-<td>{}</td>
-<td>幾個字元</td>
-</tr>
-<tr>
-<td>{,}</td>
-<td>幾到幾個字元</td>
-</tr>
-<tr>
-<td>\s</td>
-<td>任何空白</td>
-</tr>
-<tr>
-<td>\S</td>
-<td>任何非空白</td>
-</tr>
-<tr>
-<td>^…$</td>
-<td>開頭跟結尾</td>
-</tr>
-<tr>
-<td>()</td>
-<td>capture group</td>
-</tr>
-<tr>
-<td>(a|b)</td>
-<td>match a or b</td>
-</tr>
-</tbody></table>
-<h3 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h3><p>透過上方連結練習稍微理解過常用符號的用法<br>可用於表單驗證<br>有許多現成解答可直接google到</p>
-
+    <div class="collection-year">
+      <span class="collection-header">2021</span>
     </div>
 
-    
-    
-    
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E6%AD%A3%E5%89%87/" rel="tag"># 正則</a>
-          </div>
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2021-11-21T15:28:29+08:00"
+              content="2021-11-21">
+          11-21
+        </time>
+      </div>
 
-        
+      <div class="post-title">
+          <a class="post-title-link" href="/2021/11/21/my-first-article/" itemprop="url">
+            <span itemprop="name">my first article</span>
+          </a>
+      </div>
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2021/11/25/Scope%20%E4%BD%9C%E7%94%A8%E5%9F%9F/" rel="prev" title="Scope 作用域">
-      <i class="fa fa-chevron-left"></i> Scope 作用域
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/11/26/This%20%E6%8C%87%E5%90%91/" rel="next" title="This 指向">
-      This 指向 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
+    </header>
   </article>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2021-11-21T15:17:55+08:00"
+              content="2021-11-21">
+          11-21
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/2021/11/21/hello-world/" itemprop="url">
+            <span itemprop="name">Hello World</span>
+          </a>
+      </div>
+
+    </header>
+  </article>
+
+
+    </div>
+  </div>
   
   
   
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/archives/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
+  </nav>
 
 
 
@@ -388,7 +295,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A3%E5%89%87%E8%A1%A8%E9%81%94%E5%BC%8F-Regular-Expression"><span class="nav-number">1.</span> <span class="nav-text">正則表達式 Regular Expression</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#tags-%E5%96%AE%E5%85%83%E7%AD%86%E8%A8%98"><span class="nav-number">1.0.0.0.0.1.</span> <span class="nav-text">tags: 單元筆記</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%83%E8%80%83"><span class="nav-number">1.0.1.</span> <span class="nav-text">參考</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E7%94%A8%E9%80%94"><span class="nav-number">1.0.2.</span> <span class="nav-text">主要用途</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%AC%E8%A9%A6"><span class="nav-number">1.0.3.</span> <span class="nav-text">測試</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%A6%E8%99%9F%E8%A8%98%E4%B8%80%E4%B8%8B"><span class="nav-number">1.0.4.</span> <span class="nav-text">符號記一下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E7%B5%90"><span class="nav-number">1.0.5.</span> <span class="nav-text">小結</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
