@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"alnwangchi.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Allen&#39;s side project">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Drag and Drop">
+<meta property="og:url" content="https://alnwangchi.github.io/2021/11/26/Drag-and-Drop/index.html">
+<meta property="og:site_name" content="AllenW BLOG">
+<meta property="og:description" content="Allen&#39;s side project">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.imgur.com/HnLV0gl.png">
+<meta property="og:image" content="https://i.imgur.com/Xnel7uh.png">
+<meta property="article:published_time" content="2021-11-26T15:13:08.000Z">
+<meta property="article:modified_time" content="2021-11-26T15:13:33.951Z">
+<meta property="article:author" content="Allen Wang">
+<meta property="article:tag" content="網頁,前端,切版,開發,HTML,CSS,SCSS,JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/HnLV0gl.png">
+
+<link rel="canonical" href="https://alnwangchi.github.io/2021/11/26/Drag-and-Drop/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Drag and Drop | AllenW BLOG</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="AllenW BLOG" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">AllenW BLOG</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://alnwangchi.github.io/2021/11/26/Drag-and-Drop/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Allen Wang">
+      <meta itemprop="description" content="for frontend">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AllenW BLOG">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Drag and Drop
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-11-26 23:13:08 / Modified: 23:13:33" itemprop="dateCreated datePublished" datetime="2021-11-26T23:13:08+08:00">2021-11-26</time>
+            </span>
+
+          
+            <div class="post-description">Allen's side project</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Drag-amp-Drop-API-實作"><a href="#Drag-amp-Drop-API-實作" class="headerlink" title="Drag &amp; Drop API 實作"></a>Drag &amp; Drop API 實作</h1><h6 id="tags-實作-javascript"><a href="#tags-實作-javascript" class="headerlink" title="tags: 實作 javascript"></a>tags: <code>實作</code> <code>javascript</code></h6><p><a target="_blank" rel="noopener" href="https://allenw0815.github.io/mission/mission_30/index.html">實作頁面連結</a></p>
+<p><img src="https://i.imgur.com/HnLV0gl.png"></p>
+<h3 id="Flowchart"><a href="#Flowchart" class="headerlink" title="Flowchart"></a>Flowchart</h3><ol>
+<li>HTML、CSS 一頁即可呈現</li>
+<li>了解 Drag &amp; Drop API</li>
+<li>透過 JS 觸發拖曳事件</li>
+<li>最後比對陣列完成實作</li>
+</ol>
+<blockquote>
+<p>JS 流程</p>
+</blockquote>
+<p>1.設定原始資料，這邊先複製一份原始資料，然後產生畫面</p>
+<ol>
+<li>map 回傳陣列，將每一個數字回傳成為一個物件，帶有原本的值還有一個隨機數 ( 用來排序用 )</li>
+<li>sort 將陣列透過剛剛的隨機數把陣列隨機打亂排列</li>
+<li>forEach 針對每個傳入的物件依序去生成 HTML 結構，到這邊已實現每次進入的順序都不同</li>
+<li>接著加掛事件監聽</li>
+</ol>
+<ul>
+<li>展開運算子<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> number01 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">let</span> number02 = [...number01]</span><br><span class="line"><span class="built_in">console</span>.log(number02) <span class="comment">// [1, 2, 3]</span></span><br><span class="line">number01 == number02  <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> number = [<span class="string">&#x27;08&#x27;</span>,<span class="string">&#x27;18&#x27;</span>,<span class="string">&#x27;27&#x27;</span>,<span class="string">&#x27;33&#x27;</span>,<span class="string">&#x27;47&#x27;</span>,<span class="string">&#x27;52&#x27;</span>,<span class="string">&#x27;66&#x27;</span>,<span class="string">&#x27;79&#x27;</span>,<span class="string">&#x27;87&#x27;</span>,<span class="string">&#x27;99&#x27;</span>]</span><br><span class="line"><span class="keyword">const</span> createList = <span class="function">() =&gt;</span>&#123;</span><br><span class="line">    [...number]</span><br><span class="line">    .map(<span class="function"><span class="params">num</span> =&gt;</span> ( &#123; <span class="attr">value</span> : num, <span class="attr">sort</span> : <span class="built_in">Math</span>.random()&#125; ))</span><br><span class="line">    .sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a.sort - b.sort)</span><br><span class="line">    .forEach(<span class="function">(<span class="params">item,index</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> listItem = <span class="built_in">document</span>.createElement(<span class="string">&#x27;li&#x27;</span>)</span><br><span class="line">        listItem.setAttribute(<span class="string">&#x27;data-index&#x27;</span>, index) <span class="comment">//透過這個index判斷拉出哪個拉進哪個</span></span><br><span class="line">        listItem.innerHTML =</span><br><span class="line">        <span class="string">`</span></span><br><span class="line"><span class="string">        &lt;span class=&quot;number&quot;&gt; <span class="subst">$&#123;index+<span class="number">1</span>&#125;</span>.&lt;/span&gt;</span></span><br><span class="line"><span class="string">        &lt;div class=&quot;draggable&quot; draggable=&quot;true&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;p&gt;Drag Number : <span class="subst">$&#123;item.value&#125;</span>&lt;/p&gt;</span></span><br><span class="line"><span class="string">        &lt;i class=&quot;fas fa-bars&quot;&gt;&lt;/i&gt;</span></span><br><span class="line"><span class="string">        &lt;/div&gt;        </span></span><br><span class="line"><span class="string">        `</span></span><br><span class="line">        listItems.push(listItem)</span><br><span class="line">        dragArea.appendChild(listItem)</span><br><span class="line">        &#125;);</span><br><span class="line">    addEventListeners()</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>2.接著一次將所需的節點加掛事件監聽，querySelectorAll 回傳的是 nodeList 需要用 forEach 方法來遍歷，最下方參考資料有所需要的事件說明。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> addEventListeners = <span class="function">() =&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> draggables = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.draggable&#x27;</span>) <span class="comment">// 抓到右邊的&lt;div&gt;</span></span><br><span class="line">    <span class="keyword">const</span> listItems = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.drag-area li&#x27;</span>) <span class="comment">// 抓到整個&lt;li&gt;</span></span><br><span class="line"></span><br><span class="line">    draggables.forEach(<span class="function"><span class="params">draggable</span> =&gt;</span>&#123;</span><br><span class="line">        draggable.addEventListener(<span class="string">&#x27;dragstart&#x27;</span>,dragStart) </span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    listItems.forEach(<span class="function"><span class="params">item</span> =&gt;</span>&#123;</span><br><span class="line">        item.addEventListener(<span class="string">&#x27;dragenter&#x27;</span>,dragEnter)</span><br><span class="line">        item.addEventListener(<span class="string">&#x27;dragleave&#x27;</span>,dragLeave)</span><br><span class="line">        item.addEventListener(<span class="string">&#x27;dragover&#x27;</span>,dragOver)</span><br><span class="line">        item.addEventListener(<span class="string">&#x27;drop&#x27;</span>,dragDrop)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>接著觸發各個事件的對應 function ( 這邊比較複雜 )，註解也有點饒舌，要慢慢看慢慢想。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dragStart</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 一拖曳的時候會觸發</span></span><br><span class="line">    dragStartIndex = <span class="built_in">this</span>.closest(<span class="string">&#x27;li&#x27;</span>).getAttribute(<span class="string">&#x27;data-index&#x27;</span>) <span class="comment">//賦值 知道拖曳的目標物   </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dragEnter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 進入範圍時會觸發</span></span><br><span class="line">    <span class="built_in">this</span>.classList.add(<span class="string">&#x27;over&#x27;</span>) <span class="comment">//將拉入的&lt;li&gt;添加樣式</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dragLeave</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 離開範圍時會觸發</span></span><br><span class="line">    <span class="built_in">this</span>.classList.remove(<span class="string">&#x27;over&#x27;</span>) <span class="comment">//將拖離的&lt;li&gt;移除樣式</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dragOver</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 到目標物上時持續被觸發</span></span><br><span class="line">    e.preventDefault(); <span class="comment">//見下方紀錄</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dragDrop</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 拖曳區塊被放置一個有效區域時觸發</span></span><br><span class="line">    <span class="keyword">const</span> dragEndIndex =  <span class="built_in">this</span>.getAttribute(<span class="string">&#x27;data-index&#x27;</span>) <span class="comment">//定義要被交換的目標物</span></span><br><span class="line">    swapItems(dragStartIndex, dragEndIndex)   </span><br><span class="line">    <span class="built_in">this</span>.classList.remove(<span class="string">&#x27;over&#x27;</span>) <span class="comment">// 要移除樣式 不然沒有觸發 dragLeave 樣式會被保留</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> swapItems = <span class="function">(<span class="params">fromIndex, toIndex</span>) =&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> firstItem = listItems[fromIndex].querySelector(<span class="string">&#x27;.draggable&#x27;</span>) <span class="comment">//被拖的那個&lt;div&gt;</span></span><br><span class="line">    <span class="keyword">let</span> secondItem = listItems[toIndex].querySelector(<span class="string">&#x27;.draggable&#x27;</span>) <span class="comment">//要拉進的那個&lt;div&gt;</span></span><br><span class="line"></span><br><span class="line">    listItems[fromIndex].appendChild(secondItem) <span class="comment">//被拖的&lt;li&gt;放進要被拉進去的&lt;div&gt;</span></span><br><span class="line">    listItems[toIndex].appendChild(firstItem) <span class="comment">//被拉進去&lt;li&gt;要放被拖的&lt;div&gt;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>檢查數字大小順序，比對答案陣列與當前陣列的數字，並添加提示樣式</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkOrder</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> standerOrder = [] <span class="comment">//正確順序</span></span><br><span class="line">    <span class="keyword">let</span> ps = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;p&#x27;</span>) <span class="comment">//取得所有&lt;p&gt;</span></span><br><span class="line">    ps.forEach(<span class="function"><span class="params">p</span> =&gt;</span> &#123;</span><br><span class="line">        standerOrder.push((p.innerText).slice(-<span class="number">2</span>)) <span class="comment">//取得所有最後兩碼的文字 推入陣列中 </span></span><br><span class="line">    &#125;)</span><br><span class="line">    standerOrder.sort().reverse(); <span class="comment">//排序後反轉成由大到小</span></span><br><span class="line"></span><br><span class="line">    ps.forEach(<span class="function">(<span class="params">p,index</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">if</span>((p.innerText).slice(-<span class="number">2</span>) !== standerOrder[index])&#123;</span><br><span class="line">            p.classList.remove(<span class="string">&#x27;correct&#x27;</span>)</span><br><span class="line">            p.classList.add(<span class="string">&#x27;wrong&#x27;</span>)</span><br><span class="line">          &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">            p.classList.remove(<span class="string">&#x27;wrong&#x27;</span>)</span><br><span class="line">            p.classList.add(<span class="string">&#x27;correct&#x27;</span>)</span><br><span class="line">          &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="記錄"><a href="#記錄" class="headerlink" title="記錄"></a>記錄</h3><ul>
+<li>觀察事件</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dragStart = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Event&#x27;</span>,<span class="string">&#x27;dragStart&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> dragOver = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Event&#x27;</span>,<span class="string">&#x27;dragOver&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> drop = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Event&#x27;</span>,<span class="string">&#x27;drop&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> dragEnter = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Event&#x27;</span>,<span class="string">&#x27;dragEnter&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> dragLeave = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Event&#x27;</span>,<span class="string">&#x27;dragLeave&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>按著移動時，觀察事件觸發的時機，再去指派要做什麼事情<blockquote>
+<p><font color="#f00">這邊發現一個重要的問題</font></p>
+<p>原本使用 arrow function 時候 this 的指向會變成 window 導致失效報錯，所以先改回一般寫法，再另外研究 this 問題。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dragEnter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Event&#x27;</span>,<span class="string">&#x27;dragEnter&#x27;</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<img src="https://i.imgur.com/Xnel7uh.png"></li>
+</ul>
+<hr>
+<ul>
+<li>抓取節點<blockquote>
+<p>closest() 往上查找 只要找到符合條件的 就停止<br>find() 往下查找 只要找到符合條件的 就停止<br>parent() 只往上查找一層<br>parents() 往上查找 不停止 找出所有符合條件的</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>這邊發現 dragover 事件會影響 drop 事件 (同時觸發時 drop 會失效)，所以在 dragover 事件觸發 function 內取消預設執行的動作 (但不用 dropover 就無法實現功能)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dragOver</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>產生一個陣列長度為 10，並且內容為隨機數 ( 一行搞定 )</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> setData = <span class="function">() =&gt;</span> <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10</span>).fill(<span class="number">0</span>).map(<span class="function">(<span class="params">e</span>)=&gt;</span> e += <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*<span class="number">100</span>))   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="小記"><a href="#小記" class="headerlink" title="小記"></a>小記</h3><p>這一實作比較難一點，因為比較多陌生的東西，有發現這種拖曳的功能有現成的函式庫可以使用，之後可以再作補充，讓移動可以更順暢，瀏覽起來不生硬。</p>
+<h3 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/API/HTML_Drag_and_Drop_API">MDN Drag &amp; Drop API</a><br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=z54suepKiIU">YT 有示範lib使用</a><br><a target="_blank" rel="noopener" href="https://osk2.medium.com/array-%E5%8F%AF%E8%83%BD%E8%B7%9F%E4%BD%A0%E6%83%B3%E7%9A%84%E4%B8%8D%E4%B8%80%E6%A8%A3-%E4%B8%8A-21f2031e4697">Array相關文章</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/11/26/Music-Player/" rel="prev" title="Music Player">
+      <i class="fa fa-chevron-left"></i> Music Player
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Drag-amp-Drop-API-%E5%AF%A6%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">Drag &amp; Drop API 實作</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#tags-%E5%AF%A6%E4%BD%9C-javascript"><span class="nav-number">1.0.0.0.0.1.</span> <span class="nav-text">tags: 實作 javascript</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Flowchart"><span class="nav-number">1.0.1.</span> <span class="nav-text">Flowchart</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%98%E9%8C%84"><span class="nav-number">1.0.2.</span> <span class="nav-text">記錄</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E8%A8%98"><span class="nav-number">1.0.3.</span> <span class="nav-text">小記</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%83%E8%80%83"><span class="nav-number">1.0.4.</span> <span class="nav-text">參考</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Allen Wang</p>
+  <div class="site-description" itemprop="description">for frontend</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Allen Wang</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
