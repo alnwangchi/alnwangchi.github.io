@@ -293,6 +293,12 @@
 <h3 id="小記"><a href="#小記" class="headerlink" title="小記"></a>小記</h3><p>這一實作比較難一點，因為比較多陌生的東西，有發現這種拖曳的功能有現成的函式庫可以使用，之後可以再作補充，讓移動可以更順暢，瀏覽起來不生硬。</p>
 <h3 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h3><p><a href="https://developer.mozilla.org/zh-TW/docs/Web/API/HTML_Drag_and_Drop_API">MDN Drag &amp; Drop API</a><br><a href="https://www.youtube.com/watch?v=z54suepKiIU">YT 有示範lib使用</a><br><a href="https://osk2.medium.com/array-%E5%8F%AF%E8%83%BD%E8%B7%9F%E4%BD%A0%E6%83%B3%E7%9A%84%E4%B8%8D%E4%B8%80%E6%A8%A3-%E4%B8%8A-21f2031e4697">Array相關文章</a></p>
 ]]></content>
+      <categories>
+        <category>side project</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
   </entry>
   <entry>
     <title>Music Player</title>
@@ -563,7 +569,7 @@
         <category>side project</category>
       </categories>
       <tags>
-        <tag>YT API</tag>
+        <tag>Youtube API</tag>
       </tags>
   </entry>
   <entry>
@@ -653,6 +659,51 @@
 ]]></content>
       <tags>
         <tag>正則</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Google Map</title>
+    <url>/2021/11/28/Google-Map/</url>
+    <content><![CDATA[<h1 id="Google-Map"><a href="#Google-Map" class="headerlink" title="Google Map"></a>Google Map</h1><h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><ol>
+<li>先到 Google Cloud Platform 開一個專案</li>
+<li>然後啟用 Maps JavaScript API 服務</li>
+<li>申請憑證取得金鑰</li>
+<li>不過好像要開啟計費功能，在一定額度下免費這樣(直接先用公司開的)</li>
+</ol>
+<h2 id="參考文件"><a href="#參考文件" class="headerlink" title="參考文件"></a>參考文件</h2><p><a href="https://developers.google.com/maps/documentation/javascript/overview">地圖 API 文件</a><br><a href="https://tutorials.webduino.io/zh-tw/docs/socket/useful/google-map-1.html">參考教學文章</a></p>
+<h2 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h2><p><img src="https://i.imgur.com/xcmi1B3.png"></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 這邊載入 金鑰用在這</span></span><br><span class="line">&lt;script <span class="keyword">async</span></span><br><span class="line">    src=<span class="string">&quot;https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&amp;callback=initMap&quot;</span>&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  $.get(<span class="string">&#x27;data/澎湖縣學校經緯度.json&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> pengHuData = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(data)) <span class="comment">// 經緯度列表</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> map;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">initMap</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// 建立一個地圖物件，傳入要塞入的 DOM 位置以及所需參數</span></span><br><span class="line">      map = <span class="keyword">new</span> google.maps.Map(<span class="built_in">document</span>.getElementById(<span class="string">&#x27;map&#x27;</span>), &#123;</span><br><span class="line">        <span class="attr">center</span>: &#123;<span class="attr">lat</span>: <span class="number">23.6</span>, <span class="attr">lng</span>: <span class="number">119.6</span>&#125;, <span class="comment">// 載入時的中心點經緯度</span></span><br><span class="line">        <span class="attr">zoom</span>: <span class="number">12</span> <span class="comment">// 載入時的縮放比例</span></span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    initMap() <span class="comment">// 初始化地圖</span></span><br><span class="line">  </span><br><span class="line">    <span class="keyword">const</span> img_URL = <span class="string">&quot;img/icon_locate.svg&quot;</span> <span class="comment">// 取代原本地標圖示的圖案位置</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; pengHuData.length; i++) &#123;</span><br><span class="line">      <span class="comment">// 這邊就是拉載入的 json 的資料去生成資訊</span></span><br><span class="line">      <span class="keyword">const</span> position = &#123;</span><br><span class="line">        <span class="attr">lat</span>: <span class="built_in">parseFloat</span>(pengHuData[i].Latitude),</span><br><span class="line">        <span class="attr">lng</span>: <span class="built_in">parseFloat</span>(pengHuData[i].Longitude)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">const</span> marker = <span class="keyword">new</span> google.maps.Marker(&#123;</span><br><span class="line">        <span class="comment">// 建立物件的資訊</span></span><br><span class="line">        <span class="attr">title</span>: pengHuData[i].Title,</span><br><span class="line">        <span class="attr">position</span>: position,</span><br><span class="line">        <span class="attr">map</span>: map,</span><br><span class="line">        <span class="attr">icon</span>: img_URL</span><br><span class="line">      &#125;)</span><br><span class="line"></span><br><span class="line">      marker.addListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123; <span class="comment">// 要這樣註冊地標的點擊事件</span></span><br><span class="line">        <span class="keyword">const</span> modelX = e.domEvent.clientX <span class="comment">// event 內容也跟一般不同</span></span><br><span class="line">        <span class="keyword">const</span> modelY = e.domEvent.clientY</span><br><span class="line">        $(<span class="string">&#x27;.ems_model&#x27;</span>).toggle() <span class="comment">// open and close</span></span><br><span class="line">        $(<span class="string">&#x27;.ems_model&#x27;</span>).css(&#123; <span class="comment">// show where</span></span><br><span class="line">          <span class="string">&quot;top&quot;</span>: (modelY - <span class="number">150</span>) + <span class="string">&#x27;px&#x27;</span>,</span><br><span class="line">          <span class="string">&quot;left&quot;</span>: (modelX + <span class="number">25</span>) + <span class="string">&#x27;px&#x27;</span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="comment">// data render</span></span><br><span class="line">        $(<span class="string">&#x27;.school&#x27;</span>).text(<span class="built_in">this</span>.title)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="地圖控制"><a href="#地圖控制" class="headerlink" title="地圖控制"></a>地圖控制</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;.test&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  map.setZoom(<span class="number">14</span>) <span class="comment">// 縮放到某程度</span></span><br><span class="line">  map.setCenter(&#123; <span class="comment">// 移動到某定位</span></span><br><span class="line">    <span class="attr">lat</span>: <span class="number">24.143968662161</span>,</span><br><span class="line">    <span class="attr">lng</span>: <span class="number">120.681992435549</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Q-A-雜記"><a href="#Q-A-雜記" class="headerlink" title="Q A 雜記"></a>Q A 雜記</h2><h3 id="如何取得地點的經緯度"><a href="#如何取得地點的經緯度" class="headerlink" title="如何取得地點的經緯度 ?"></a>如何取得地點的經緯度 ?</h3><p>在電腦上開啟Google 地圖。<br>在地圖上對需要座標的地點/區域按一下滑鼠右鍵。<br>選取經緯度即可自動複製座標。</p>
+<h3 id="xlsx-要怎麼轉-json"><a href="#xlsx-要怎麼轉-json" class="headerlink" title=".xlsx 要怎麼轉 .json"></a>.xlsx 要怎麼轉 .json</h3><p>拿到一堆地區的經緯度 excel 先轉成 CSV 檔案，再透過線上工具轉檔即可<br><a href="https://www.convertcsv.com/csv-to-json.htm">轉檔網站</a><br>所有CSV檔都是純文字檔，適用於不同的應用程式交換資料，轉檔時也比較沒問題，原先直接用 xlxs 上去轉出來一堆亂碼<br>(comma separated variable)</p>
+]]></content>
+      <categories>
+        <category>side project</category>
+      </categories>
+      <tags>
+        <tag>Google Map API</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>關於 git 版控</title>
+    <url>/2021/11/28/%E9%97%9C%E6%96%BC-git-%E7%89%88%E6%8E%A7/</url>
+    <content><![CDATA[<h1 id="關於-git-版控"><a href="#關於-git-版控" class="headerlink" title="關於 git 版控"></a>關於 git 版控</h1><h2 id="雜紀"><a href="#雜紀" class="headerlink" title="雜紀"></a>雜紀</h2><p>cmd + shift + . 顯示隱藏資料檔</p>
+<h2 id="CMD-操作"><a href="#CMD-操作" class="headerlink" title="CMD 操作"></a>CMD 操作</h2><p>cd_ =&gt; 進入資料夾<br>cd.. =&gt; 回上層資料夾<br>ls =&gt; 顯示當前位置所有內容<br>~ =&gt; 當前位置所在<br>cmd+k =&gt; 清空面板<br>mkdir 資料夾名 =&gt; 新增資料夾<br>touch 檔案名 =&gt; 新增檔案</p>
+<h2 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h2><p>當檔案有差異時，就可以被 commit，較好的 commit 習慣是一個功能完整後即可 commit，若積累一堆功能後才 commit 容易有想回到上一個版本但卻又回復太多的情形。</p>
+<p>branch 就是讓個人可以獨立的作業做某個項目，</p>
+<p><img src="https://i.imgur.com/ygzmXek.png"></p>
+<h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><p>設定 email<br>git config –global user.email “<a href="mailto:&#x72;&#x6f;&#x38;&#49;&#53;&#x31;&#54;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#x6d;">&#x72;&#x6f;&#x38;&#49;&#53;&#x31;&#54;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#x6d;</a>“<br>設定 使用者名稱<br>git config –global user.name “Allen.w”<br>檢查當前設定<br>git config –list</p>
+<p><code>git init</code> 第一步將資料夾初始化<br><code>git add .</code> 將檔案加入 stage (.代表全部加上去)<br><code>git commit -m 'msg'</code> 說明<br><code>git status</code> 檢查狀態<br><code>git log</code> 檢視各個 commit 點 亂碼代號<br><code>git branch allenB</code> 建立新的分支 allenB<br><code>git checkout 檔名</code> 將檔案回復到上一個 commit 點<br><code>git checkout 亂碼前四碼</code> 該 commit<br><code>git checkout --hard</code> 全部回復到上一個 commit 點<br><code>git checkout allenB</code> 切到 allenB 分支上面<br><code>git checkout -b allenC</code> 建立新的分支 allenC 順便切過去<br><code>git merge</code> 當前分支去合併某分支 看我要把誰 merge 進來<br><code>git rebase</code> 把當前分支的 commit 點拉到某分支前</p>
+<p>當 merge 遇到衝突時就需要手動合併，當前頁面會顯示相撞的 HEAD 以及 income 內容讓我去判斷要如何處理，當選擇完畢後，還需要再度 add commit 一次</p>
+<p>當推送分支的時候會遇到的問題，因為很可能本地不只有一個數據庫，如果直接用 git push 的話他會不確定到底是要推上 github 還是其他地方(正式主機、測試主機)，所以需要指定數據庫跟分支，那為何一開始直接 push 就會成功，那是因為 master 已經有預設了</p>
+<p><code>git remote</code> 檢查本地數據庫<br><code>git push origin branch</code> 推送的完整指令 [預設遠端主機名][分支名稱]</p>
+]]></content>
+      <categories>
+        <category>觀念紀錄</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
       </tags>
   </entry>
 </search>
