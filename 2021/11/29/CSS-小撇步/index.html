@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"alnwangchi.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Allen&#39;s note">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS 小撇步">
+<meta property="og:url" content="https://alnwangchi.github.io/2021/11/29/CSS-%E5%B0%8F%E6%92%87%E6%AD%A5/index.html">
+<meta property="og:site_name" content="AllenW BLOG">
+<meta property="og:description" content="Allen&#39;s note">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.imgur.com/EipMZ48.png">
+<meta property="og:image" content="https://i.imgur.com/b7qQgme.png">
+<meta property="og:image" content="https://i.imgur.com/b8bOiO8.png">
+<meta property="article:published_time" content="2021-11-28T16:00:08.000Z">
+<meta property="article:modified_time" content="2021-11-28T16:00:25.751Z">
+<meta property="article:author" content="Allen Wang">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/EipMZ48.png">
+
+<link rel="canonical" href="https://alnwangchi.github.io/2021/11/29/CSS-%E5%B0%8F%E6%92%87%E6%AD%A5/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>CSS 小撇步 | AllenW BLOG</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="AllenW BLOG" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">AllenW BLOG</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://alnwangchi.github.io/2021/11/29/CSS-%E5%B0%8F%E6%92%87%E6%AD%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Allen Wang">
+      <meta itemprop="description" content="for frontend">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AllenW BLOG">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CSS 小撇步
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-11-29 00:00:08 / Modified: 00:00:25" itemprop="dateCreated datePublished" datetime="2021-11-29T00:00:08+08:00">2021-11-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">Allen's note</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="CSS-小撇步"><a href="#CSS-小撇步" class="headerlink" title="CSS 小撇步"></a>CSS 小撇步</h1><h3 id="練習網站"><a href="#練習網站" class="headerlink" title="練習網站"></a>練習網站</h3><p><a target="_blank" rel="noopener" href="https://flukeout.github.io/">CSS 選取器練習</a></p>
+<h3 id="有用觀念的雜紀"><a href="#有用觀念的雜紀" class="headerlink" title="有用觀念的雜紀"></a>有用觀念的雜紀</h3><ul>
+<li>HTML 結構的層級關係在寫 CSS 的時候要留意一些往子層觸發的事件，例如說 hover 的時候要顯示出來，往子層都沒關係，但若顯示的是同層或是上層就會出問題，解法為用 JS 去動態選取元素在 hover 的時候添加 display:block<blockquote>
+<p>JQ 的 hover() 要帶兩個函式參數，分別為 mouseenter 跟 mouseleave 兩個事件</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="01-reload-進場動畫"><a href="#01-reload-進場動畫" class="headerlink" title="01.reload 進場動畫"></a>01.reload 進場動畫</h3><p>進入後透過讓整個 body 從透明度 0 到 1 過場形成淡入效果。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">animation</span>: fade-in-page <span class="number">0.75s</span> linear;</span><br><span class="line">    <span class="keyword">@keyframes</span> fade-in-page &#123;</span><br><span class="line">      <span class="number">0%</span> &#123;</span><br><span class="line">        <span class="attribute">filter</span>: <span class="built_in">blur</span>(<span class="number">5px</span>);</span><br><span class="line">        <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="number">100%</span> &#123;</span><br><span class="line">        <span class="attribute">filter</span>: <span class="built_in">blur</span>(<span class="number">0</span>);</span><br><span class="line">        <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="02-數字計數動畫"><a href="#02-數字計數動畫" class="headerlink" title="02.數字計數動畫"></a>02.數字計數動畫</h3><p>使用函式庫 CountUp.js，這邊的用法好像是將傳入的結束值作為最終顯示。<br><a target="_blank" rel="noopener" href="https://github.com/inorganik/countUp.js">github 位置</a></p>
+<ol>
+<li>引入函式庫</li>
+<li>創建 CountUp 物件</li>
+<li>將設定改為參數傳入 function</li>
+<li>需執行的 tag 要寫上 id (還沒測試其他選取器是否可行)</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;span class=&quot;number&quot; id=&quot;counter01&quot;&gt;3&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&#x27;https://cdnjs.cloudflare.com/ajax/libs/countup.js/1.8.2/countUp.min.js&#x27;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">countUp</span> (<span class="params">id,start,end,duration</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> options = &#123;</span><br><span class="line">      <span class="attr">useEasing</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">useGrouping</span>: <span class="literal">true</span>,</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> demo = <span class="keyword">new</span> CountUp(id,start,end,<span class="number">0</span>,duration,options);</span><br><span class="line">  (!demo.error) ? demo.start() : <span class="built_in">console</span>.error(demo.error);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">countUp(<span class="string">&quot;counter01&quot;</span>,<span class="number">0</span>,<span class="number">3</span>,<span class="number">2.5</span>);</span><br></pre></td></tr></table></figure>
+
+<p>也可以用 CSS animation 硬幹 <a target="_blank" rel="noopener" href="https://codepen.io/yyaann/pen/abpeEjy">範例</a></p>
+<hr>
+<h3 id="03-進場動畫"><a href="#03-進場動畫" class="headerlink" title="03.進場動畫"></a>03.進場動畫</h3><p>使用函式庫 Animate.css<br><a target="_blank" rel="noopener" href="https://animate.style/">Animate.css</a></p>
+<ol>
+<li>CDN 引入</li>
+<li>直接在 tag 上加 class，也可以寫在 CSS 的 animation 內</li>
+</ol>
+<hr>
+<h3 id="04-img-的-CSS-reset"><a href="#04-img-的-CSS-reset" class="headerlink" title="04.img 的 CSS reset"></a>04.img 的 CSS reset</h3><p>RWD 時寫上讓圖片自適應伸縮</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">    <span class="attribute">max-width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="05-讓用戶不用掃描，直接點就可以加-line-好友的方式"><a href="#05-讓用戶不用掃描，直接點就可以加-line-好友的方式" class="headerlink" title="05.讓用戶不用掃描，直接點就可以加 line 好友的方式"></a>05.讓用戶不用掃描，直接點就可以加 line 好友的方式</h3><p><a target="_blank" rel="noopener" href="https://study.smallway.tw/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E6%B3%95/%E3%80%90code%E3%80%91html%E5%8A%A0line%E5%A5%BD%E5%8F%8B%E7%9A%84%E8%AA%9E%E6%B3%95%EF%BC%8C%E8%AB%8B%E6%94%B9%E7%94%A8%E9%80%99%E5%80%8B%E6%9B%B4%E8%83%BD%E5%A2%9E%E5%8A%A0%E6%88%90%E5%8A%9F/">參考這邊</a></p>
+<p>在 a 連結那邊的方式改寫成以下</p>
+<ul>
+<li>原本的加好友連結是這樣 :<br><a target="_blank" rel="noopener" href="http://line.me/ti/p/@329doqml">http://line.me/ti/p/@329doqml</a></li>
+<li>請你改成這樣 :<br>line://ti/p/@329doqml</li>
+</ul>
+<hr>
+<h3 id="06-SCSS-的設定方式"><a href="#06-SCSS-的設定方式" class="headerlink" title="06.SCSS 的設定方式"></a>06.SCSS 的設定方式</h3><p><a target="_blank" rel="noopener" href="https://medium.com/@enshenghuang/%E4%BD%BF%E7%94%A8vscode%E5%A4%96%E6%8E%9B%E8%87%AA%E5%8B%95%E7%B7%A8%E8%AD%AFsass-scss-9ff768d23b48">參考這邊</a></p>
+<hr>
+<h3 id="07-版面高度的設定問題"><a href="#07-版面高度的設定問題" class="headerlink" title="07.版面高度的設定問題"></a>07.版面高度的設定問題</h3><p>最上層的元素不該設定高度 ex:120vh，應該要讓內容物自適應去撐高度才對，不然當裝置寬變窄後內容物往下擠就會出現高不夠讓內容被吃掉的情況。<br>而上下的間距則透過上下的子元素做 margin 來撐即可。</p>
+<hr>
+<h3 id="08-漢堡下拉選單實現方式"><a href="#08-漢堡下拉選單實現方式" class="headerlink" title="08.漢堡下拉選單實現方式"></a>08.漢堡下拉選單實現方式</h3><ol>
+<li>下拉選單起出藏在畫面外部</li>
+<li>點擊漢堡時改變 class 將 display:none 改為 block</li>
+<li>用 JS 的 click 動態改變 class</li>
+<li>或是用純 CSSS 的 input:checked 狀態或是 hover 跟 active 來控制</li>
+</ol>
+<hr>
+<h3 id="09-Scroll-事件偵測"><a href="#09-Scroll-事件偵測" class="headerlink" title="09.Scroll 事件偵測"></a>09.Scroll 事件偵測</h3><hr>
+<h3 id="10-Scroll-觸發動畫套件-AOS"><a href="#10-Scroll-觸發動畫套件-AOS" class="headerlink" title="10.Scroll 觸發動畫套件  AOS"></a>10.Scroll 觸發動畫套件  AOS</h3><p>如何使用 AOS ?</p>
+<p><a target="_blank" rel="noopener" href="https://michalsnik.github.io/aos/">AOS</a></p>
+<p>CDN 腳本跟樣式表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;link href=&quot;https://unpkg.com/aos@2.3.1/dist/aos.css&quot; rel=&quot;stylesheet&quot;&gt;</span><br><span class="line">&lt;script src=&quot;https://unpkg.com/aos@2.3.1/dist/aos.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>在標籤內加上 data-key 的屬性，也可在此調整參數</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 一般</span><br><span class="line">&lt;img class=&quot;color-arrow&quot; src=&quot;Content/img/color-arrow.svg&quot; alt=&quot;&quot; data-aos=&quot;fade-right&quot; data-aos-delay=&quot;300&quot;&gt;</span><br><span class="line"></span><br><span class="line">// SVG 自訂動畫</span><br><span class="line">&lt;div class=&quot;svg-area &quot;  data-aos=&quot;anim-line&quot;&gt;</span><br><span class="line">    &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 855.46 871.04&quot;&gt;</span><br><span class="line">        &lt;g&gt;</span><br><span class="line">            &lt;polygon id=&quot;one&quot; points=&quot;566.52 0.93 397.24 381.83 684.75 381.83 854.03 0.93 566.52 0.93&quot; /&gt;</span><br><span class="line">            &lt;polygon id=&quot;two&quot; points=&quot;397.24 381.83 218.43 381.83 1.43 870.11 180.23 870.11 397.24 381.83&quot; /&gt;</span><br><span class="line">        &lt;/g&gt;</span><br><span class="line">    &lt;/svg&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>範例比較複雜，要讓 SVG 到點時才開始開始畫，用屬性選擇器選到最外層才會讓套件動態添加 class 使動畫觸發，SVG 圖用 AI 轉出來參考參數，這邊動畫實現的方式是讓線段變為虛線，然後範圍設定超大，一開始就會顯示虛線的空白段，接著 transition 變為無虛線來實現畫圖動畫。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[data-aos=<span class="string">&quot;anim-line&quot;</span>]</span> &#123;</span><br><span class="line">  polygon &#123;</span><br><span class="line">    fill: none;</span><br><span class="line">    stroke: <span class="number">#2fc590</span>;</span><br><span class="line">    stroke-<span class="attribute">width</span>: <span class="number">1.3</span>;</span><br><span class="line">    stroke-miterlimit: <span class="number">10</span>;</span><br><span class="line">    stroke-dasharray: <span class="number">6000</span>;</span><br><span class="line">    stroke-dashoffset: <span class="number">6000</span>;</span><br><span class="line">    <span class="attribute">transition</span>: <span class="number">15s</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;<span class="selector-class">.aos-animate</span> &#123;</span><br><span class="line">    polygon &#123;</span><br><span class="line">      stroke-dashoffset: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="11-navbar-多級選單的實現方式"><a href="#11-navbar-多級選單的實現方式" class="headerlink" title="11.navbar 多級選單的實現方式"></a>11.navbar 多級選單的實現方式</h3><p>手機版本 :<br>選單已變漢堡，點擊時將選單下拉出現</p>
+<ul>
+<li>用 JS 監聽點擊時切換 class 改變位置，多添加一個不同定位的 class </li>
+<li>用 label 包住漢堡，透過 checkbox 的 checked 狀態來改變 CSS 實現定位的變換</li>
+</ul>
+<p>多級選單</p>
+<ul>
+<li>透過純 CSS 的 a 、 button 的 :active 來滑出次級 menu</li>
+<li>這次用的方式為將第一層的 li 內放入 次級的 menu 然後再絕對定位到畫面外( relative 設在畫面中的第一層 ul 上 )，以此完成大小相同的次級 menu，使用 JQ 來監聽點擊事件。</li>
+</ul>
+<p><img src="https://i.imgur.com/EipMZ48.png"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 選單點擊時去抓到被點擊的下一個元素切換 class</span></span><br><span class="line"><span class="comment">// 這邊是用 a 的 padding 去撐開 li 的尺寸，讓整個區塊都能被點擊</span></span><br><span class="line"><span class="comment">// 見上方結構</span></span><br><span class="line">$(<span class="string">&#x27;a.trigger&#x27;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    $(<span class="built_in">this</span>).next().addClass(<span class="string">&#x27;go-right&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 返回按鍵是抓到返回的 class 後去將上方加入的 class移除</span></span><br><span class="line"><span class="comment">// 每個次級 menu 使用同個 class 也沒關係，因為出來的只有一個 ul，對於其他 ul 等於沒有這個 class 去移除，所以沒差。</span></span><br><span class="line">$(<span class="string">&#x27;.back&#x27;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    $(<span class="string">&#x27;.menu-second&#x27;</span>).removeClass(<span class="string">&#x27;go-right&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="12-快速隱藏滾輪"><a href="#12-快速隱藏滾輪" class="headerlink" title="12.快速隱藏滾輪"></a>12.快速隱藏滾輪</h3><p>以下請複製貼上</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>::-webkit-scrollbar &#123;</span><br><span class="line">    /*隱藏滾輪*/</span><br><span class="line">    display: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="13-多級選單實作方式-2"><a href="#13-多級選單實作方式-2" class="headerlink" title="13.多級選單實作方式-2"></a>13.多級選單實作方式-2</h3><p><strong>列表甲</strong>內各選項內再包一個<strong>列表乙</strong>，<strong>列表乙</strong>個選項內又再包一個<strong>列表丙</strong>，以此方次一直包下去行程多級選單 ; 要包起來的原因在於 hover 的效果範圍，若不包而定在外部的話會造成 hover 時顯示下一個選單，當滑到下一個選單時整個選單消失的問題 ; 透過當上層選單 hover 時，下層選單 display:none 變為 block 來顯示內容，以此方式即可陸續顯示下層內容。</p>
+<ul>
+<li>此範例的最後一級為圖片</li>
+</ul>
+<p><img src="https://i.imgur.com/b7qQgme.png"></p>
+<hr>
+<h3 id="14-增加工作效率方法a發現"><a href="#14-增加工作效率方法a發現" class="headerlink" title="14.增加工作效率方法a發現"></a>14.增加工作效率方法a發現</h3><p>在我寫 SCSS 的時候時常會有重複性的屬性，這時候可做兩種統整方式</p>
+<ol>
+<li>例如是不用設定值的屬性就可以將常用的組合寫成 snippet 提升效率<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">&quot;generate random img&quot;</span>: &#123;</span><br><span class="line">		<span class="attr">&quot;prefix&quot;</span>: <span class="string">&quot;rimg&quot;</span>,</span><br><span class="line">		<span class="attr">&quot;body&quot;</span>: [</span><br><span class="line">		  <span class="string">&quot;&lt;img src=\&quot;https://picsum.photos/200/300\&quot; alt=\&quot;lost\&quot;&gt;&quot;</span></span><br><span class="line">		],</span><br><span class="line">		<span class="attr">&quot;description&quot;</span>: <span class="string">&quot;generate random img&quot;</span></span><br><span class="line">	  &#125;,</span><br><span class="line">	<span class="attr">&quot;display: flex&quot;</span>: &#123;</span><br><span class="line">		<span class="attr">&quot;prefix&quot;</span>: <span class="string">&quot;df&quot;</span>,</span><br><span class="line">		<span class="attr">&quot;body&quot;</span>: [</span><br><span class="line">		  <span class="string">&quot;display: flex;&quot;</span></span><br><span class="line">		],</span><br><span class="line">		<span class="attr">&quot;description&quot;</span>: <span class="string">&quot;display: flex&quot;</span></span><br><span class="line">	  &#125;,</span><br><span class="line">	<span class="attr">&quot;flex family one&quot;</span>: &#123;</span><br><span class="line">		<span class="attr">&quot;prefix&quot;</span>: <span class="string">&quot;fcc&quot;</span>,</span><br><span class="line">		<span class="attr">&quot;body&quot;</span>: [</span><br><span class="line">		  <span class="string">&quot;display: flex;&quot;</span>,</span><br><span class="line">		  <span class="string">&quot;justify-content: center;&quot;</span>,</span><br><span class="line">		  <span class="string">&quot;align-items: center;&quot;</span></span><br><span class="line">		],</span><br><span class="line">		<span class="attr">&quot;description&quot;</span>: <span class="string">&quot;set child to middle&quot;</span></span><br><span class="line">	  &#125;,</span><br><span class="line">	<span class="attr">&quot;flex family two&quot;</span>: &#123;</span><br><span class="line">		<span class="attr">&quot;prefix&quot;</span>: <span class="string">&quot;fbc&quot;</span>,</span><br><span class="line">		<span class="attr">&quot;body&quot;</span>: [</span><br><span class="line">		  <span class="string">&quot;display: flex;&quot;</span>,</span><br><span class="line">		  <span class="string">&quot;justify-content: space-between;&quot;</span>,</span><br><span class="line">		  <span class="string">&quot;align-items: center;&quot;</span></span><br><span class="line">		],</span><br><span class="line">		<span class="attr">&quot;description&quot;</span>: <span class="string">&quot;set child to between&quot;</span></span><br><span class="line">	  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>要設定值的屬性像是文字設定、重複使用的漸層、色塊直接包成 @mixin 或是提取 class 到最外層在需要時取用<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@mixin</span> bg-gradient &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(</span><br><span class="line">    to left,</span><br><span class="line">    <span class="built_in">rgba</span>(<span class="number">139</span>, <span class="number">147</span>, <span class="number">169</span>, <span class="number">0</span>) <span class="number">0%</span>,</span><br><span class="line">    <span class="built_in">rgba</span>(<span class="number">139</span>, <span class="number">147</span>, <span class="number">169</span>, <span class="number">0.5</span>) <span class="number">70%</span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@mixin</span> normal-h2() &#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--green);</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">2rem</span>;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="number">300</span>;</span><br><span class="line">  <span class="keyword">@include</span> md &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">1.5rem</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;<span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">left</span>: -<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">17px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">45px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">2px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="built_in">var</span>(--green);</span><br><span class="line">    <span class="keyword">@include</span> md &#123;</span><br><span class="line">      <span class="attribute">top</span>: <span class="number">10px</span>;</span><br><span class="line">      <span class="attribute">width</span>: <span class="number">30px</span>;</span><br><span class="line">      <span class="attribute">left</span>: -<span class="number">60px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@mixin</span> normal-p &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">1.5rem</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">3rem</span>;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="number">300</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr>
+<h3 id="15-文字隨螢幕自適應縮放"><a href="#15-文字隨螢幕自適應縮放" class="headerlink" title="15.文字隨螢幕自適應縮放"></a>15.文字隨螢幕自適應縮放</h3><p>一般文字設定好後要在各個不同斷點改變 font-size 來實作，或是使用單位 rem 在各斷點改變 html 的預設的 font-size ; 那麼以上這些方式在抵達斷點尺寸時都會跳一下變更樣式，儘管加上 transition 也是不會隨時都有變化，後來發現文字的單位還可以是 % 及 vw ， 使用 vw 即可實現隨時隨著螢幕視窗大小自適應尺寸了。</p>
+<p>1vw 及代表以<strong>當前可視視窗</strong>除以 100 的結果，vw 就意味著此寬度佔據整個畫面的比例。</p>
+<hr>
+<h3 id="16-class-的命名方式"><a href="#16-class-的命名方式" class="headerlink" title="16.class 的命名方式"></a>16.class 的命名方式</h3><p>在有好幾個頁面的切版中非常困擾，尤其是有很多元件可以統一寫的，使用了很多像名詞命名</p>
+<ul>
+<li>box</li>
+<li>item</li>
+<li>area</li>
+<li>row</li>
+<li>wrap</li>
+<li>list</li>
+</ul>
+<p>以上面這些為主又會加上一堆形容詞</p>
+<ul>
+<li>inner-box</li>
+<li>large-box</li>
+<li>small-box</li>
+<li>text-box</li>
+<li>text-area</li>
+<li>box-left</li>
+<li>img-box</li>
+<li>pic-area</li>
+</ul>
+<p>還有內容限制的命名可以避免，有時候會有多處可共用</p>
+<ul>
+<li>product-list</li>
+<li>price-box</li>
+</ul>
+<p>有夠沒有邏輯的命名，但有些就算語意化反而單字很難，遇到單字比較多的簡寫後反而要了自己老命 ; 要自己理出一套有結構性的命名，可能是依照內容類型、依照結構層級、共用樣式這些來生出一個命名標準 ; 先去研究網上文章看看</p>
+<p><a target="_blank" rel="noopener" href="https://hackmd.io/@ALN/S1FFfzZYu">Allen王 class 命名大法</a></p>
+<hr>
+<h3 id="17-可提取的-style-整理"><a href="#17-可提取的-style-整理" class="headerlink" title="17.可提取的 style 整理"></a>17.可提取的 style 整理</h3><hr>
+<h3 id="18-not-選擇器使用時機"><a href="#18-not-選擇器使用時機" class="headerlink" title="18.:not() 選擇器使用時機"></a>18.:not() 選擇器使用時機</h3><p>遇到重複性排列時，例如 ul li，在推開間距時後最後一個項目也有 margin 的話，會讓原本整個 ul 在父層中沒對齊，利用 :not() 來讓最後一個項目無設定完成整齊的版面。</p>
+<hr>
+<h3 id="19-子選擇器-gt-真滴方便"><a href="#19-子選擇器-gt-真滴方便" class="headerlink" title="19.子選擇器 &gt; 真滴方便"></a>19.子選擇器 &gt; 真滴方便</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ul</span> &gt; <span class="selector-tag">li</span> &#123;</span><br><span class="line">    <span class="attribute">margin-bottom</span>: <span class="number">0.5rem</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="20-rem-amp-em-如何使用？"><a href="#20-rem-amp-em-如何使用？" class="headerlink" title="20.rem &amp; em 如何使用？"></a>20.rem &amp; em 如何使用？</h3><p>這個對於 RWD 很有幫助該研究清楚</p>
+<p>em = equal to the width of the capital letter M</p>
+<p>rem : 根據根元素的 font-size 的倍數</p>
+<p>em : 根據父元素的 font-size 的倍數</p>
+<p>目前預想的使用時機是以 rem 為主，在大範圍的情況下使用 rem ，然後在包在範圍裡面的內容用 em ，這樣的話當我在各個裝置設定的斷點可以透過更改 html 根元素的 font-size 來調整尺寸，並且依照各個內容裡面的 em 來以該父元素的 font-size 依照比例縮放，不過也是會有不適用的時後，屆時再另外調整即可</p>
+<hr>
+<h3 id="21-上-favicon"><a href="#21-上-favicon" class="headerlink" title="21.上 favicon"></a>21.上 favicon</h3><p>請貼上</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; href=&quot;content/img/favicon.svg&quot;/&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="22-他媽的-還好我有用變數"><a href="#22-他媽的-還好我有用變數" class="headerlink" title="22.他媽的 還好我有用變數"></a>22.他媽的 還好我有用變數</h3><p><img src="https://i.imgur.com/b8bOiO8.png"></p>
+<hr>
+<h3 id="23-mixin-行數限制"><a href="#23-mixin-行數限制" class="headerlink" title="23.mixin 行數限制"></a>23.mixin 行數限制</h3><p>敬請複製、貼上、@include、傳參數 (尚不確定通用性)</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@mixin</span> textLimit($number) &#123;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">    <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">    -webkit-line-clamp: $number;</span><br><span class="line">    -webkit-box-orient: vertical;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.card_title</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: $fzSub1;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">130%</span>;</span><br><span class="line">    <span class="attribute">margin-bottom</span>: <span class="number">12px</span>;</span><br><span class="line">    <span class="keyword">@include</span> textLimit(<span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.card_content</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: $fzSub3;</span><br><span class="line">    <span class="attribute">font-weight</span>: $fw300;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">160%</span>;</span><br><span class="line">    <span class="keyword">@include</span> textLimit(<span class="number">3</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="24-關於設計稿可能會出現的盲點以及切版"><a href="#24-關於設計稿可能會出現的盲點以及切版" class="headerlink" title="24.關於設計稿可能會出現的盲點以及切版"></a>24.關於設計稿可能會出現的盲點以及切版</h3><p>發現到很多設計稿的內容都有過大的問題，原因應該是在於一般螢幕都是在 1920 以下，然而在這尺寸之下再去設計 1920 的桌機版稿件的話，在設計時一定是縮在更小的範圍尺寸去做 1920 的內容，所以直接看起來的好像沒問題，但實際上在切版時會發現原先設計的在實際尺寸看時都大了一號。接著就會出現切好的版又要改的靠腰事</p>
+<p>這只能盡量使用變數設定來去解決，尚未想到有什麼更好的方式應對這樣子的情況，設計沒 sence 就 GG。</p>
+<p>另外，有碰到看起來應該是相同的 component 但是內外距的設定卻又有很多種，這時造成多寫了很多 &amp;.class 來去個別化，以至於整個樣式管理很雜，應該不管這種奇怪的設計，直接統一間距處理，若之後確認要這麼奇怪的樣式設定的話再改，不然浪費時間</p>
+<hr>
+<h3 id="25-中文字整齊的排版"><a href="#25-中文字整齊的排版" class="headerlink" title="25.中文字整齊的排版"></a>25.中文字整齊的排版</h3><p>因為有文字、標點符號、全形半形的問題，所以常常在斷行處(行末)會有一致的留白，可以這樣處理，但英文就不一定合適了，因為會把單字截斷</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.text</span> &#123;</span><br><span class="line">    <span class="attribute">text-align</span>: justify;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="25-神技-將有色-icon-轉為白色"><a href="#25-神技-將有色-icon-轉為白色" class="headerlink" title="25.神技 - 將有色 icon 轉為白色"></a>25.神技 - 將有色 icon 轉為白色</h3><p>原理為將明度降為最低 0 等於黑色再反轉成白色</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.aln_social_links</span> <span class="selector-tag">img</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">brightness</span>(<span class="number">0</span>) <span class="built_in">invert</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<h3 id="26-彩帶雨"><a href="#26-彩帶雨" class="headerlink" title="26.彩帶雨"></a>26.彩帶雨</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;wrapper&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;confetti-11&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;confetti-10&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;confetti-9&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;confetti-8&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;confetti-7&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;confetti-6&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;confetti-5&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;confetti-4&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;confetti-3&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;confetti-2&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;confetti-1&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;confetti-0&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">//ribbon <span class="attribute">animation</span> (SCSS)</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">min-height</span>: <span class="number">400vh</span>;</span><br><span class="line">    <span class="attribute">z-index</span>: <span class="number">3</span>;</span><br><span class="line">    <span class="attribute">pointer-events</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-attr">[class|=<span class="string">&quot;confetti&quot;</span>]</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$colors: (<span class="number">#d13447</span>, <span class="number">#ffbf00</span>, <span class="number">#263672</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">@for</span> $i from <span class="number">0</span> through <span class="number">150</span> &#123;</span><br><span class="line">    $w: <span class="built_in">random</span>(<span class="number">8</span>);</span><br><span class="line">    $l: <span class="built_in">random</span>(<span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">    <span class="selector-class">.confetti-</span>#&#123;$<span class="selector-tag">i</span>&#125; &#123;</span><br><span class="line">        <span class="attribute">width</span>: #&#123;$w&#125;px;</span><br><span class="line">        <span class="attribute">height</span>: #&#123;$w * <span class="number">2</span>&#125;px;</span><br><span class="line">        <span class="attribute">background-color</span>: <span class="built_in">nth</span>($colors, <span class="built_in">random</span>(<span class="number">3</span>));</span><br><span class="line">        <span class="attribute">top</span>: -<span class="number">10%</span>;</span><br><span class="line">        <span class="attribute">left</span>: <span class="built_in">unquote</span>($l + <span class="string">&quot;%&quot;</span>);</span><br><span class="line">        <span class="attribute">opacity</span>: <span class="built_in">random</span>() + <span class="number">0.5</span>;</span><br><span class="line">        <span class="attribute">transform</span>: <span class="built_in">rotate</span>(#&#123;<span class="built_in">random</span>() * <span class="number">760</span>&#125;deg);</span><br><span class="line">        <span class="attribute">animation</span>: drop-#&#123;$i&#125; unquote(<span class="number">3</span> + random() + &quot;s&quot;) unquote(random() + &quot;s&quot;);</span><br><span class="line">        <span class="attribute">animation-delay</span>: <span class="built_in">unquote</span>(<span class="built_in">random</span>() + <span class="string">&quot;s&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">@keyframes</span> drop-#&#123;$<span class="selector-tag">i</span>&#125; &#123;</span><br><span class="line">        <span class="number">100%</span> &#123;</span><br><span class="line">            <span class="attribute">top</span>: <span class="number">110%</span>;</span><br><span class="line">            <span class="attribute">left</span>: <span class="built_in">unquote</span>($l + <span class="built_in">random</span>(<span class="number">15</span>) + <span class="string">&quot;%&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/11/28/CSS-%E5%87%BA%E7%8B%80%E6%B3%81/" rel="prev" title="CSS 出狀況">
+      <i class="fa fa-chevron-left"></i> CSS 出狀況
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS-%E5%B0%8F%E6%92%87%E6%AD%A5"><span class="nav-number">1.</span> <span class="nav-text">CSS 小撇步</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B7%B4%E7%BF%92%E7%B6%B2%E7%AB%99"><span class="nav-number">1.0.1.</span> <span class="nav-text">練習網站</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E7%94%A8%E8%A7%80%E5%BF%B5%E7%9A%84%E9%9B%9C%E7%B4%80"><span class="nav-number">1.0.2.</span> <span class="nav-text">有用觀念的雜紀</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#01-reload-%E9%80%B2%E5%A0%B4%E5%8B%95%E7%95%AB"><span class="nav-number">1.0.3.</span> <span class="nav-text">01.reload 進場動畫</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#02-%E6%95%B8%E5%AD%97%E8%A8%88%E6%95%B8%E5%8B%95%E7%95%AB"><span class="nav-number">1.0.4.</span> <span class="nav-text">02.數字計數動畫</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#03-%E9%80%B2%E5%A0%B4%E5%8B%95%E7%95%AB"><span class="nav-number">1.0.5.</span> <span class="nav-text">03.進場動畫</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#04-img-%E7%9A%84-CSS-reset"><span class="nav-number">1.0.6.</span> <span class="nav-text">04.img 的 CSS reset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#05-%E8%AE%93%E7%94%A8%E6%88%B6%E4%B8%8D%E7%94%A8%E6%8E%83%E6%8F%8F%EF%BC%8C%E7%9B%B4%E6%8E%A5%E9%BB%9E%E5%B0%B1%E5%8F%AF%E4%BB%A5%E5%8A%A0-line-%E5%A5%BD%E5%8F%8B%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="nav-number">1.0.7.</span> <span class="nav-text">05.讓用戶不用掃描，直接點就可以加 line 好友的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#06-SCSS-%E7%9A%84%E8%A8%AD%E5%AE%9A%E6%96%B9%E5%BC%8F"><span class="nav-number">1.0.8.</span> <span class="nav-text">06.SCSS 的設定方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#07-%E7%89%88%E9%9D%A2%E9%AB%98%E5%BA%A6%E7%9A%84%E8%A8%AD%E5%AE%9A%E5%95%8F%E9%A1%8C"><span class="nav-number">1.0.9.</span> <span class="nav-text">07.版面高度的設定問題</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#08-%E6%BC%A2%E5%A0%A1%E4%B8%8B%E6%8B%89%E9%81%B8%E5%96%AE%E5%AF%A6%E7%8F%BE%E6%96%B9%E5%BC%8F"><span class="nav-number">1.0.10.</span> <span class="nav-text">08.漢堡下拉選單實現方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#09-Scroll-%E4%BA%8B%E4%BB%B6%E5%81%B5%E6%B8%AC"><span class="nav-number">1.0.11.</span> <span class="nav-text">09.Scroll 事件偵測</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-Scroll-%E8%A7%B8%E7%99%BC%E5%8B%95%E7%95%AB%E5%A5%97%E4%BB%B6-AOS"><span class="nav-number">1.0.12.</span> <span class="nav-text">10.Scroll 觸發動畫套件  AOS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-navbar-%E5%A4%9A%E7%B4%9A%E9%81%B8%E5%96%AE%E7%9A%84%E5%AF%A6%E7%8F%BE%E6%96%B9%E5%BC%8F"><span class="nav-number">1.0.13.</span> <span class="nav-text">11.navbar 多級選單的實現方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-%E5%BF%AB%E9%80%9F%E9%9A%B1%E8%97%8F%E6%BB%BE%E8%BC%AA"><span class="nav-number">1.0.14.</span> <span class="nav-text">12.快速隱藏滾輪</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-%E5%A4%9A%E7%B4%9A%E9%81%B8%E5%96%AE%E5%AF%A6%E4%BD%9C%E6%96%B9%E5%BC%8F-2"><span class="nav-number">1.0.15.</span> <span class="nav-text">13.多級選單實作方式-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-%E5%A2%9E%E5%8A%A0%E5%B7%A5%E4%BD%9C%E6%95%88%E7%8E%87%E6%96%B9%E6%B3%95a%E7%99%BC%E7%8F%BE"><span class="nav-number">1.0.16.</span> <span class="nav-text">14.增加工作效率方法a發現</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-%E6%96%87%E5%AD%97%E9%9A%A8%E8%9E%A2%E5%B9%95%E8%87%AA%E9%81%A9%E6%87%89%E7%B8%AE%E6%94%BE"><span class="nav-number">1.0.17.</span> <span class="nav-text">15.文字隨螢幕自適應縮放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-class-%E7%9A%84%E5%91%BD%E5%90%8D%E6%96%B9%E5%BC%8F"><span class="nav-number">1.0.18.</span> <span class="nav-text">16.class 的命名方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-%E5%8F%AF%E6%8F%90%E5%8F%96%E7%9A%84-style-%E6%95%B4%E7%90%86"><span class="nav-number">1.0.19.</span> <span class="nav-text">17.可提取的 style 整理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-not-%E9%81%B8%E6%93%87%E5%99%A8%E4%BD%BF%E7%94%A8%E6%99%82%E6%A9%9F"><span class="nav-number">1.0.20.</span> <span class="nav-text">18.:not() 選擇器使用時機</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-%E5%AD%90%E9%81%B8%E6%93%87%E5%99%A8-gt-%E7%9C%9F%E6%BB%B4%E6%96%B9%E4%BE%BF"><span class="nav-number">1.0.21.</span> <span class="nav-text">19.子選擇器 &gt; 真滴方便</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20-rem-amp-em-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%EF%BC%9F"><span class="nav-number">1.0.22.</span> <span class="nav-text">20.rem &amp; em 如何使用？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21-%E4%B8%8A-favicon"><span class="nav-number">1.0.23.</span> <span class="nav-text">21.上 favicon</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-%E4%BB%96%E5%AA%BD%E7%9A%84-%E9%82%84%E5%A5%BD%E6%88%91%E6%9C%89%E7%94%A8%E8%AE%8A%E6%95%B8"><span class="nav-number">1.0.24.</span> <span class="nav-text">22.他媽的 還好我有用變數</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#23-mixin-%E8%A1%8C%E6%95%B8%E9%99%90%E5%88%B6"><span class="nav-number">1.0.25.</span> <span class="nav-text">23.mixin 行數限制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#24-%E9%97%9C%E6%96%BC%E8%A8%AD%E8%A8%88%E7%A8%BF%E5%8F%AF%E8%83%BD%E6%9C%83%E5%87%BA%E7%8F%BE%E7%9A%84%E7%9B%B2%E9%BB%9E%E4%BB%A5%E5%8F%8A%E5%88%87%E7%89%88"><span class="nav-number">1.0.26.</span> <span class="nav-text">24.關於設計稿可能會出現的盲點以及切版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#25-%E4%B8%AD%E6%96%87%E5%AD%97%E6%95%B4%E9%BD%8A%E7%9A%84%E6%8E%92%E7%89%88"><span class="nav-number">1.0.27.</span> <span class="nav-text">25.中文字整齊的排版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#25-%E7%A5%9E%E6%8A%80-%E5%B0%87%E6%9C%89%E8%89%B2-icon-%E8%BD%89%E7%82%BA%E7%99%BD%E8%89%B2"><span class="nav-number">1.0.28.</span> <span class="nav-text">25.神技 - 將有色 icon 轉為白色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#26-%E5%BD%A9%E5%B8%B6%E9%9B%A8"><span class="nav-number">1.0.29.</span> <span class="nav-text">26.彩帶雨</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Allen Wang</p>
+  <div class="site-description" itemprop="description">for frontend</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Allen Wang</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

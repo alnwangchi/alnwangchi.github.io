@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"alnwangchi.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Allen&#39;s note">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS 出狀況">
+<meta property="og:url" content="https://alnwangchi.github.io/2021/11/28/CSS-%E5%87%BA%E7%8B%80%E6%B3%81/index.html">
+<meta property="og:site_name" content="AllenW BLOG">
+<meta property="og:description" content="Allen&#39;s note">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.imgur.com/3Cqi8LE.png">
+<meta property="og:image" content="https://i.imgur.com/PP2jz5J.png">
+<meta property="og:image" content="https://i.imgur.com/m6bHk7x.png">
+<meta property="og:image" content="https://i.imgur.com/3syEs6L.png">
+<meta property="og:image" content="https://i.imgur.com/0xf5evk.png">
+<meta property="og:image" content="https://i.imgur.com/DAth4EB.png">
+<meta property="og:image" content="https://i.imgur.com/I9xXOOB.jpg">
+<meta property="og:image" content="https://i.imgur.com/IwSLfne.png">
+<meta property="og:image" content="https://i.imgur.com/VsGFJJF.png">
+<meta property="og:image" content="https://i.imgur.com/V6luh5P.png">
+<meta property="article:published_time" content="2021-11-28T15:59:17.000Z">
+<meta property="article:modified_time" content="2021-11-28T15:59:48.491Z">
+<meta property="article:author" content="Allen Wang">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/3Cqi8LE.png">
+
+<link rel="canonical" href="https://alnwangchi.github.io/2021/11/28/CSS-%E5%87%BA%E7%8B%80%E6%B3%81/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>CSS 出狀況 | AllenW BLOG</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="AllenW BLOG" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">AllenW BLOG</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://alnwangchi.github.io/2021/11/28/CSS-%E5%87%BA%E7%8B%80%E6%B3%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Allen Wang">
+      <meta itemprop="description" content="for frontend">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AllenW BLOG">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CSS 出狀況
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-11-28 23:59:17 / Modified: 23:59:48" itemprop="dateCreated datePublished" datetime="2021-11-28T23:59:17+08:00">2021-11-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">Allen's note</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="CSS-出狀況"><a href="#CSS-出狀況" class="headerlink" title="CSS 出狀況"></a>CSS 出狀況</h1><h3 id="可預先避免的"><a href="#可預先避免的" class="headerlink" title="可預先避免的"></a>可預先避免的</h3><ul>
+<li>推距離時候優先使用 padding，若使用 margin 可能遇到推不開的 margin collapsing 問題</li>
+<li>對於 ul 、 li 盡量不要設定他，設定他內層的元素優先。</li>
+<li>重複用到的樣式可以提取到 SCSS 的全域範圍</li>
+<li>字級、字重應該是可以抽出來統一設定( reset 之後 )，不然每次都要設定會很冗而且會記錯</li>
+</ul>
+<hr>
+<h3 id="01-文字對齊誤差調整-transform-失效"><a href="#01-文字對齊誤差調整-transform-失效" class="headerlink" title="01.文字對齊誤差調整 transform 失效"></a>01.文字對齊誤差調整 transform 失效</h3><p>Q : 2020 跟 斜線 沒有在同一水平上要如何解決？ </p>
+<p>A : 直接對 inline element 做 transform 無效，需要轉為有 block element 屬性才會生效，故此範例中要保持不換行且生效就是使用 display: inline-block</p>
+<p><img src="https://i.imgur.com/3Cqi8LE.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h3&gt;2007&lt;span&gt;/&lt;/span&gt;&lt;span&gt;年&lt;/span&gt;&lt;/div&gt;&lt;/h3&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">span</span><span class="selector-pseudo">:first</span>-child &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-<span class="number">0.3rem</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/PP2jz5J.png"></p>
+<hr>
+<h3 id="02-SVG-消失不見"><a href="#02-SVG-消失不見" class="headerlink" title="02.SVG 消失不見"></a>02.SVG 消失不見</h3><p>Q : img 標籤使用 SVG ，實際上 SVG 有佔位置但卻是透明的原因？</p>
+<p>A : 只發現可能是特效套件影響，原本掛上屬性 data-aos 時候圖不見，移除後就顯示了，原因未知。</p>
+<p><a target="_blank" rel="noopener" href="https://michalsnik.github.io/aos/">AOS scroll lib</a></p>
+<p><img src="https://i.imgur.com/m6bHk7x.png"></p>
+<hr>
+<h3 id="03-手刻-RWD-height-設定"><a href="#03-手刻-RWD-height-設定" class="headerlink" title="03.手刻 RWD height 設定"></a>03.手刻 RWD height 設定</h3><p>Q : 電腦版的版面高度以 vh 設定，在螢幕變窄時版面上下底色會直敘延伸，如何有效解決？</p>
+<p>A : 目前是依照每一個尺寸斷點變更 vh 數值，但此方法有個問題就是，尚未到達斷點前都會一直延伸，等到抵達斷點時才會跳成新設定的數值，好像不是很好的處理方式。</p>
+<p>A : 更新，是因為原本一個 section 區塊設定滿版 100vh ，所以當螢幕比例不同時造成內容不足以滿版，多餘的部分就變為空白</p>
+<p>A : 更新，不該設定高度，由內容去推開即可</p>
+<p><img src="https://i.imgur.com/3syEs6L.png"><br><img src="https://i.imgur.com/0xf5evk.png"></p>
+<hr>
+<h3 id="04-media-在-max-width-980px-以下時失效"><a href="#04-media-在-max-width-980px-以下時失效" class="headerlink" title="04.@media 在 max-width:980px 以下時失效"></a>04.@media 在 max-width:980px 以下時失效</h3><p>Q : 980px 以上正常，一到以下就失效</p>
+<p>A : HTML 的 head 少了以下這一行標籤，要做 RWD 都一定要有這一行。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt; </span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="05-要如何實際讓圖片旋轉"><a href="#05-要如何實際讓圖片旋轉" class="headerlink" title="05.要如何實際讓圖片旋轉"></a>05.要如何實際讓圖片旋轉</h3><p>Q : 使用 transform 時是視覺變化但實際位置無改變，但當我要做 RWD 時會有以下狀況，何解？</p>
+<p>A : 只能想到直接編輯原始圖片，範例中是原始紅箭頭做 rotate(90deg)，但是有上下間距過大問題</p>
+<p>A : 補充，上下可以用負數的 margin 來壓縮</p>
+<p><img src="https://i.imgur.com/DAth4EB.png"></p>
+<hr>
+<h3 id="06-動畫會卡一下才消失再執行"><a href="#06-動畫會卡一下才消失再執行" class="headerlink" title="06.動畫會卡一下才消失再執行"></a>06.動畫會卡一下才消失再執行</h3><p>Q : CSS fadeinLeft 在執行時會先出現在終點一瞬後消失再執行進場動畫，整個很怪，何解？</p>
+<p>A : unknow，應該是套件使用方式跟 CSS animation 有衝突</p>
+<hr>
+<h3 id="07-圖片縫隙問題"><a href="#07-圖片縫隙問題" class="headerlink" title="07.圖片縫隙問題"></a>07.圖片縫隙問題</h3><p>Q : img 標籤在下方連接處出現不明縫隙( Bug )要如何解決?</p>
+<p>A : 以下為各種解法，都可以解決此問題。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.brand-spirit</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">0</span>; // 方法<span class="number">01</span>在父層添加</span><br><span class="line">    <span class="selector-class">.bs-img</span>&#123;</span><br><span class="line">        <span class="attribute">position</span>: relative;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">55%</span>;</span><br><span class="line">        <span class="selector-tag">img</span>&#123;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">            <span class="attribute">vertical-align</span>:bottom; // 方法<span class="number">02</span></span><br><span class="line">            <span class="attribute">display</span>: block; // 方法<span class="number">03</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/I9xXOOB.jpg"></p>
+<hr>
+<h3 id="08-animate-讓-teansform-失效"><a href="#08-animate-讓-teansform-失效" class="headerlink" title="08.animate 讓 teansform 失效"></a>08.animate 讓 teansform 失效</h3><p><a target="_blank" rel="noopener" href="https://css-tricks.com/forums/topic/transform-translate-isnt-working-with-animation-2/">解答</a></p>
+<p>Q : 用了 transform 的元素後套用動畫會讓畫面回歸原位，何解?</p>
+<p>A : 把要做動畫的元素多包一層 div 再將定位做在這層即可，另外子層要是 block 才可以正確執行動畫，ex : a tag 要改為 block。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;buying-btn&quot;&gt;</span><br><span class="line">    &lt;a class=&quot;animate__animated animate__bounce&quot; href=&quot;#&quot;&gt;詢問購買&lt;/a&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/IwSLfne.png"></p>
+<hr>
+<h3 id="09-選擇器錯亂"><a href="#09-選擇器錯亂" class="headerlink" title="09.選擇器錯亂"></a>09.選擇器錯亂</h3><p>Q : </p>
+<p>A : 選擇器 ‘空白’ and ‘&gt;’ and ‘~’ and ‘+’ 要注意使用。</p>
+<ul>
+<li>空白 : 選取以下所有的</li>
+<li>&gt; : 僅選擇它的的子層對象（child）</li>
+<li>+ : 僅選擇它<strong>同層</strong>之後的第一個對象（siblings）</li>
+<li>~ : 選擇它<strong>同層</strong>之後的所有對象（siblings）</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 這個會讓所有子孫層內第一個 li 都被選到</span></span><br><span class="line">$(<span class="string">&#x27;.h-menu-list li:first-child&#x27;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">    $(<span class="string">&#x27;.menu-a&#x27;</span>).css(<span class="string">&#x27;right&#x27;</span>,<span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 這個只選定底下第一個 li 而已</span></span><br><span class="line">$(<span class="string">&#x27;.h-menu-list &gt; li:first-child&#x27;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">    $(<span class="string">&#x27;.menu-a&#x27;</span>).css(<span class="string">&#x27;right&#x27;</span>,<span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="10-margin-重疊問題"><a href="#10-margin-重疊問題" class="headerlink" title="10.margin 重疊問題"></a>10.margin 重疊問題</h3><p>Q : 出現垂直的 li 元素設定 margin: 2rem 0; 後 li 之間只有 2rem 間距而不是預期的 4rem 發現 margin 重疊再一起了？</p>
+<p>A : margin collapsing 是個常見問題，待研究，先使用 padding</p>
+<hr>
+<h3 id="11-漢堡的做法以及動畫問題"><a href="#11-漢堡的做法以及動畫問題" class="headerlink" title="11.漢堡的做法以及動畫問題"></a>11.漢堡的做法以及動畫問題</h3><p>Q : 漢堡被點開的時候三槓要轉換為叉叉該如何實作？</p>
+<p>A : 原本三槓的做法是坐中間一槓後用 before after 去做上下槓，在要變成叉叉的時候要上中槓隱藏，上下槓旋轉，但是一旦主體中槓 display:none 、 visibility:hidden 、 opacity:0 都會讓所有槓消失 ; 所以可能不能使用偽類元素來製作需動化效果的物件。</p>
+<p>A : before after 是依照主體來做出來的，所以要三根槓槓都要是實際 block 才行 ; 實作方法為以下</p>
+<ol>
+<li>在一範圍內先置中一個正方形</li>
+<li>裡邊包 3 根 100% 寬的均分槓槓</li>
+<li>點擊時加上 class </li>
+<li>class 為上槓下移後旋轉 ; 中槓消失 ; 下槓上移後旋轉</li>
+<li>完成 ( 記得要加 transition )</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/ywg228/pen/PKaGxj">可直接參考</a></p>
+<hr>
+<h3 id="12-div-只設定背景圖片沒有給高的話圖出不來，但又不能高度寫死的情況"><a href="#12-div-只設定背景圖片沒有給高的話圖出不來，但又不能高度寫死的情況" class="headerlink" title="12.div 只設定背景圖片沒有給高的話圖出不來，但又不能高度寫死的情況"></a>12.div 只設定背景圖片沒有給高的話圖出不來，但又不能高度寫死的情況</h3><p>Q : 寫好 100vh 後在 PC 正常，但是切 RWD 時會讓超出內容被 hidden？</p>
+<p>A : 單給 padding-bottom:50% 百分比即可放內容顯示，那這個的百分比好像不是參考父層，而是變為與寬度的比例顯示。</p>
+<hr>
+<h3 id="13-margin-0-auto-沒有效果"><a href="#13-margin-0-auto-沒有效果" class="headerlink" title="13.margin: 0 auto 沒有效果"></a>13.margin: 0 auto 沒有效果</h3><p>Q : button 想要置中時 margin: 0 auto 卻沒有效果?</p>
+<p>A : button 是 inline element 所以無法生效，補上 display: block 即可生效</p>
+<hr>
+<h3 id="14-before-跟-after-的定位使用"><a href="#14-before-跟-after-的定位使用" class="headerlink" title="14.before 跟 after 的定位使用"></a>14.before 跟 after 的定位使用</h3><p>Q : 使用情境為設定好主標並搭配偽元素長出裝飾線，套用在各個位置，但是定位有些會因為在用 padding 推開的時候而造成定位基準跑掉?</p>
+<p>A : 改為使用 margin 推距離，因為有設定 box-sizing: border-box ?所以 padding 所推的距離也算是內容會造成定位基準的位置不同</p>
+<hr>
+<h3 id="15-z-index-的使用問題"><a href="#15-z-index-的使用問題" class="headerlink" title="15.z-index 的使用問題"></a>15.z-index 的使用問題</h3><p>Q : 為什麼 z-index 的堆疊順序不如預期？</p>
+<p>A : z-index只能在有設定位（position）的元素上才會奏效</p>
+<hr>
+<h3 id="16-background-image-因內容不足撐滿版而被切掉"><a href="#16-background-image-因內容不足撐滿版而被切掉" class="headerlink" title="16.background-image 因內容不足撐滿版而被切掉"></a>16.background-image 因內容不足撐滿版而被切掉</h3><p>Q : 區塊內的背景圖因沒寫死高度，而是靠內容去撐開，但內容不足時背景圖就被切掉部分，尤其 RWD 時寬度到達某尺寸時也會發生</p>
+<p>A : unknow</p>
+<hr>
+<h3 id="17-label-無法設定寬高樣式"><a href="#17-label-無法設定寬高樣式" class="headerlink" title="17.label 無法設定寬高樣式"></a>17.label 無法設定寬高樣式</h3><p>Q : <img src="https://i.imgur.com/VsGFJJF.png"></p>
+<p>A : dispaly: block 即可，總是忘記 inline element</p>
+<hr>
+<h3 id="18-關於-animate-觸發事件"><a href="#18-關於-animate-觸發事件" class="headerlink" title="18.關於 animate 觸發事件"></a>18.關於 animate 觸發事件</h3><p>當我的 css animate 是 infinity 的時候會無法觸發 animationend 事件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">DOM.addEventListener(<span class="string">&#x27;animationend&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    start++</span><br><span class="line">    <span class="built_in">console</span>.log(start);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="19-overflow-x-hidden-在手機版失效"><a href="#19-overflow-x-hidden-在手機版失效" class="headerlink" title="19. overflow-x: hidden 在手機版失效"></a>19. overflow-x: hidden 在手機版失效</h3><p>原因應該是移動端的瀏覽器的關係</p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/24193272/overflow-xhidden-on-mobile-device-not-working">參考</a></p>
+<p>原本只下在 body 會失效，好像是瀏覽器會無視 body 上的 overflow: hidden</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// Evonik 專案上下樣就可行了</span><br><span class="line"><span class="selector-tag">html</span>, <span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">overflow-x</span>:hidden </span><br><span class="line">&#125;</span><br><span class="line">// or</span><br><span class="line"><span class="selector-tag">html</span>, <span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>:relative;</span><br><span class="line">  <span class="attribute">overflow-x</span>:hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>另外，有許多此問題的回答都是說不要在 body 下層直接寫內容，先用一個容器包著全部的內容，在對該容器下 overflow: hidden 也是個方式</p>
+<hr>
+<h3 id="20-flexbox內容物被擠壓問題"><a href="#20-flexbox內容物被擠壓問題" class="headerlink" title="20. flexbox內容物被擠壓問題"></a>20. flexbox內容物被擠壓問題</h3><p>第二個圓球因為右邊的字數就多所以會被壓縮，對不要被壓縮到的內容下 flex-shrink: 0; 代表我這個 flex 物件不要被壓縮到，解決。</p>
+<p><img src="https://i.imgur.com/V6luh5P.png"></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.phase</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">justify-content</span>: flex-start;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">104px</span>;</span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">1rem</span>;</span><br><span class="line">  <span class="selector-class">.number</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">104px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">104px</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: $mainPurple;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">justify-content</span>: center;</span><br><span class="line">    <span class="attribute">align-items</span>: center;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">margin-right</span>: <span class="number">1.5rem</span>;</span><br><span class="line">    <span class="attribute">flex-shrink</span>: <span class="number">0</span>; // 這這這這這</span><br><span class="line">    <span class="selector-tag">p</span> &#123;</span><br><span class="line">      <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">span</span> &#123;</span><br><span class="line">      <span class="attribute">font-size</span>: <span class="number">40px</span>;</span><br><span class="line">      <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-<span class="number">6px</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp; &gt; <span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="built_in">calc</span>(<span class="number">100%</span> - <span class="number">124px</span>); // 也可以這樣處理 土法煉鋼比較笨一點</span><br><span class="line">  &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/11/28/VScode-setting-extensions/" rel="prev" title="VScode setting & extensions">
+      <i class="fa fa-chevron-left"></i> VScode setting & extensions
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/11/29/CSS-%E5%B0%8F%E6%92%87%E6%AD%A5/" rel="next" title="CSS 小撇步">
+      CSS 小撇步 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS-%E5%87%BA%E7%8B%80%E6%B3%81"><span class="nav-number">1.</span> <span class="nav-text">CSS 出狀況</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E9%A0%90%E5%85%88%E9%81%BF%E5%85%8D%E7%9A%84"><span class="nav-number">1.0.1.</span> <span class="nav-text">可預先避免的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#01-%E6%96%87%E5%AD%97%E5%B0%8D%E9%BD%8A%E8%AA%A4%E5%B7%AE%E8%AA%BF%E6%95%B4-transform-%E5%A4%B1%E6%95%88"><span class="nav-number">1.0.2.</span> <span class="nav-text">01.文字對齊誤差調整 transform 失效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#02-SVG-%E6%B6%88%E5%A4%B1%E4%B8%8D%E8%A6%8B"><span class="nav-number">1.0.3.</span> <span class="nav-text">02.SVG 消失不見</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#03-%E6%89%8B%E5%88%BB-RWD-height-%E8%A8%AD%E5%AE%9A"><span class="nav-number">1.0.4.</span> <span class="nav-text">03.手刻 RWD height 設定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#04-media-%E5%9C%A8-max-width-980px-%E4%BB%A5%E4%B8%8B%E6%99%82%E5%A4%B1%E6%95%88"><span class="nav-number">1.0.5.</span> <span class="nav-text">04.@media 在 max-width:980px 以下時失效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#05-%E8%A6%81%E5%A6%82%E4%BD%95%E5%AF%A6%E9%9A%9B%E8%AE%93%E5%9C%96%E7%89%87%E6%97%8B%E8%BD%89"><span class="nav-number">1.0.6.</span> <span class="nav-text">05.要如何實際讓圖片旋轉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#06-%E5%8B%95%E7%95%AB%E6%9C%83%E5%8D%A1%E4%B8%80%E4%B8%8B%E6%89%8D%E6%B6%88%E5%A4%B1%E5%86%8D%E5%9F%B7%E8%A1%8C"><span class="nav-number">1.0.7.</span> <span class="nav-text">06.動畫會卡一下才消失再執行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#07-%E5%9C%96%E7%89%87%E7%B8%AB%E9%9A%99%E5%95%8F%E9%A1%8C"><span class="nav-number">1.0.8.</span> <span class="nav-text">07.圖片縫隙問題</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#08-animate-%E8%AE%93-teansform-%E5%A4%B1%E6%95%88"><span class="nav-number">1.0.9.</span> <span class="nav-text">08.animate 讓 teansform 失效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#09-%E9%81%B8%E6%93%87%E5%99%A8%E9%8C%AF%E4%BA%82"><span class="nav-number">1.0.10.</span> <span class="nav-text">09.選擇器錯亂</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-margin-%E9%87%8D%E7%96%8A%E5%95%8F%E9%A1%8C"><span class="nav-number">1.0.11.</span> <span class="nav-text">10.margin 重疊問題</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-%E6%BC%A2%E5%A0%A1%E7%9A%84%E5%81%9A%E6%B3%95%E4%BB%A5%E5%8F%8A%E5%8B%95%E7%95%AB%E5%95%8F%E9%A1%8C"><span class="nav-number">1.0.12.</span> <span class="nav-text">11.漢堡的做法以及動畫問題</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-div-%E5%8F%AA%E8%A8%AD%E5%AE%9A%E8%83%8C%E6%99%AF%E5%9C%96%E7%89%87%E6%B2%92%E6%9C%89%E7%B5%A6%E9%AB%98%E7%9A%84%E8%A9%B1%E5%9C%96%E5%87%BA%E4%B8%8D%E4%BE%86%EF%BC%8C%E4%BD%86%E5%8F%88%E4%B8%8D%E8%83%BD%E9%AB%98%E5%BA%A6%E5%AF%AB%E6%AD%BB%E7%9A%84%E6%83%85%E6%B3%81"><span class="nav-number">1.0.13.</span> <span class="nav-text">12.div 只設定背景圖片沒有給高的話圖出不來，但又不能高度寫死的情況</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-margin-0-auto-%E6%B2%92%E6%9C%89%E6%95%88%E6%9E%9C"><span class="nav-number">1.0.14.</span> <span class="nav-text">13.margin: 0 auto 沒有效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-before-%E8%B7%9F-after-%E7%9A%84%E5%AE%9A%E4%BD%8D%E4%BD%BF%E7%94%A8"><span class="nav-number">1.0.15.</span> <span class="nav-text">14.before 跟 after 的定位使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-z-index-%E7%9A%84%E4%BD%BF%E7%94%A8%E5%95%8F%E9%A1%8C"><span class="nav-number">1.0.16.</span> <span class="nav-text">15.z-index 的使用問題</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-background-image-%E5%9B%A0%E5%85%A7%E5%AE%B9%E4%B8%8D%E8%B6%B3%E6%92%90%E6%BB%BF%E7%89%88%E8%80%8C%E8%A2%AB%E5%88%87%E6%8E%89"><span class="nav-number">1.0.17.</span> <span class="nav-text">16.background-image 因內容不足撐滿版而被切掉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-label-%E7%84%A1%E6%B3%95%E8%A8%AD%E5%AE%9A%E5%AF%AC%E9%AB%98%E6%A8%A3%E5%BC%8F"><span class="nav-number">1.0.18.</span> <span class="nav-text">17.label 無法設定寬高樣式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-%E9%97%9C%E6%96%BC-animate-%E8%A7%B8%E7%99%BC%E4%BA%8B%E4%BB%B6"><span class="nav-number">1.0.19.</span> <span class="nav-text">18.關於 animate 觸發事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-overflow-x-hidden-%E5%9C%A8%E6%89%8B%E6%A9%9F%E7%89%88%E5%A4%B1%E6%95%88"><span class="nav-number">1.0.20.</span> <span class="nav-text">19. overflow-x: hidden 在手機版失效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20-flexbox%E5%85%A7%E5%AE%B9%E7%89%A9%E8%A2%AB%E6%93%A0%E5%A3%93%E5%95%8F%E9%A1%8C"><span class="nav-number">1.0.21.</span> <span class="nav-text">20. flexbox內容物被擠壓問題</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Allen Wang</p>
+  <div class="site-description" itemprop="description">for frontend</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Allen Wang</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
